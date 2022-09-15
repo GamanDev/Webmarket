@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Expletus+Sans:ital@1&family=Graduate&family=Handlee&family=Oleo+Script:wght@400;700&family=Orbitron&family=Poppins:wght@200&family=Raleway&family=Roboto+Mono&family=Spline+Sans+Mono&family=Tapestry&family=Updock&family=Water+Brush&display=swap");
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
+}
