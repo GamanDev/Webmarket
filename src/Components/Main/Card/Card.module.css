@@ -1,4 +1,5 @@
-.card {
+.card,
+.card_outOfStock {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -8,11 +9,34 @@
   box-sizing: border-box;
 }
 
+.card_outOfStock {
+  opacity: 0.5;
+  position: relative;
+}
+
+.text {
+  display: none;
+}
+.no_text {
+  position: absolute;
+  left: 32.42%;
+  right: 25.71%;
+  top: 40.24%;
+  bottom: 43.94%;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  align-items: center;
+
+  color: #8d8f9a;
+}
+
 .card__image {
   max-width: 356px;
   max-height: 338px;
 }
 
-.card:hover {
+.card:hover,
+.card_outOfStock:hover {
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.719);
 }

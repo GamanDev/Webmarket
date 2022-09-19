@@ -5,9 +5,24 @@ import styles from "./Main.module.css";
 export default class Main extends Component {
   render() {
     const testProps = [
-      { url: "http://unsplash.it/355/338", name: "Alpha", Price: "30.00" },
-      { url: "http://unsplash.it/356/338", name: "Beta", Price: "42.00" },
-      { url: "http://unsplash.it/357/338", name: "Charlie", Price: "13.00" },
+      {
+        url: "http://unsplash.it/355/338",
+        name: "Alpha",
+        Price: "30.00",
+        inStock: true,
+      },
+      {
+        url: "http://unsplash.it/356/338",
+        name: "Beta",
+        Price: "42.00",
+        inStock: true,
+      },
+      {
+        url: "http://unsplash.it/357/338",
+        name: "Charlie",
+        Price: "13.00",
+        inStock: false,
+      },
     ];
     return (
       <div>
@@ -19,6 +34,7 @@ export default class Main extends Component {
               url={card.url}
               name={card.name}
               price={card.Price}
+              inStock={card.inStock}
             />
           ))}
         </div>
