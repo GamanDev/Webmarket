@@ -7,7 +7,7 @@ export default class Nav extends Component {
     return (
       <div className={styles.nav}>
         <div className={styles.nav__links}>
-          <Link to="/All">All</Link>
+          <Link to="/">All</Link>
           <Link to="/Clothes">Clothes</Link>
           <Link to="/Tech">Tech</Link>
         </div>

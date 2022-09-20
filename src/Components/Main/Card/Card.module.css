@@ -23,6 +23,7 @@
   right: 25.71%;
   top: 40.24%;
   bottom: 43.94%;
+
   font-weight: 400;
   font-size: 24px;
   line-height: 160%;
@@ -34,6 +35,9 @@
 .card__image {
   max-width: 356px;
   max-height: 338px;
+}
+.price {
+  display: flex;
 }
 
 .card:hover,
