@@ -12,6 +12,11 @@ class Product extends Component {
           <div>
             <div>{product.brand}</div>
             <div>{product.category}</div>
+            <div>
+              {product.attributes[0].items.map((atr) => (
+                <div>{atr.value}</div>
+              ))}
+            </div>
           </div>
         )}
       </>
