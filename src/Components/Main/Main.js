@@ -6,23 +6,24 @@ import { gql } from "@apollo/client";
 
 class Main extends Component {
   render() {
-    console.log(this.props.data);
-    console.log(this.props.category);
-    const check = this.props.data.category;
+    const {
+      data: { variables },
+    } = this.props;
 
+    console.log(this.props);
     return (
       <div>
         <h2>{123}</h2>
         <div className={styles.products}>
-          {check &&
+          {this.props.data.category &&
             this.props.data.category.products.map((product) => (
               <Card
                 key={product.id}
                 url={product.gallery[0]}
                 name={product.name}
                 inStock={product.inStock}
-                price={product.prices[0].amount}
                 symbol={product.prices[0].currency.symbol}
+                price={product.prices[0].amount}
                 id={product.id}
               />
             ))}
@@ -34,8 +35,8 @@ class Main extends Component {
 
 export default graphql(
   gql`
-    query {
-      category(input: { title: "all" }) {
+    query ($category: String!) {
+      category(input: { title: $category }) {
         name
         products {
           name
@@ -54,8 +55,10 @@ export default graphql(
     }
   `,
   {
-    options: (category) => ({
-      category,
+    options: (props) => ({
+      variables: {
+        category: props.category,
+      },
     }),
   }
 )(Main);
