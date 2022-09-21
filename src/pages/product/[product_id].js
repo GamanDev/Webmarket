@@ -70,6 +70,7 @@ export default graphql(
   `,
   {
     options: (props) => ({
+      fetchPolicy: "network-only",
       variables: {
         id: window.location.pathname.replace("/product/", ""),
       },
