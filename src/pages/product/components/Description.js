@@ -7,12 +7,13 @@ export default class Description extends Component {
     this.myRef = React.createRef();
   }
   render() {
-    const { brand, name, description, prices, attributes } = this.props.product;
+    const { brand, name, description, prices, attributes, inStock } =
+      this.props.product;
 
     if (!this.props.product) return null;
 
     return (
-      <form>
+      <form className={styles.description}>
         <h2>{brand}</h2>
         <h3>{name}</h3>
 
@@ -54,7 +55,11 @@ export default class Description extends Component {
           <div>{prices[0].currency.symbol}</div>
           <div>{prices[0].amount}</div>
         </div>
-        <button>ADD TO CART</button>
+        {inStock ? (
+          <button>ADD TO CART</button>
+        ) : (
+          <button disabled>ADD TO CART</button>
+        )}
         <article dangerouslySetInnerHTML={{ __html: description }}></article>
       </form>
     );

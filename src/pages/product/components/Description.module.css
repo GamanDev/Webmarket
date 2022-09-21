@@ -1,3 +1,9 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  max-width: 292px;
+}
+
 .variants {
   display: flex;
 }
