@@ -71,7 +71,7 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        id: props.id,
+        id: window.location.pathname.replace("/product/", ""),
       },
     }),
   }
