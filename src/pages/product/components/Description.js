@@ -20,29 +20,41 @@ export default class Description extends Component {
           <div key={attribute.id}>
             <h4>{attribute.name.toUpperCase()}</h4>
             <div className={styles.variants}>
-              {attribute.name === "Color"
-                ? attribute.items.map((item) => (
+              {/*  */}
+
+              {attribute.items.map((item) => (
+                <label key={item.value}>
+                  <input type="radio" name={attribute.name} />
+                  {attribute.name === "Color" ? (
                     <div
                       key={item.id}
                       className={styles.check_color}
                       style={{
                         background: `${item.value}`,
                       }}
+                      onClick={() => console.log(item.displayValue)}
                     ></div>
-                  ))
-                : attribute.items.map((item) => (
-                    <div key={item.id} className={styles.select}>
+                  ) : (
+                    <div
+                      key={item.id}
+                      className={styles.select}
+                      onClick={() => console.log(item.value)}
+                    >
                       {item.value}
                     </div>
-                  ))}
+                  )}
+                </label>
+              ))}
+              {/*  */}
             </div>
           </div>
         ))}
-        <h4>PRICE:</h4>
+        <h4>{this.props.product.prices[0].__typename.toUpperCase()}:</h4>
         <div className={styles.prices}>
           <div>{prices[0].currency.symbol}</div>
           <div>{prices[0].amount}</div>
         </div>
+        <button>ADD TO CART</button>
         <article dangerouslySetInnerHTML={{ __html: description }}></article>
       </form>
     );
