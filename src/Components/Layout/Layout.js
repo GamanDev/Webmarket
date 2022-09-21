@@ -46,7 +46,8 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        category: window.location.pathname.replace("/bliminse/", ""),
+        // category: window.location.pathname.replace("/bliminse/", ""),
+        category: props.category,
       },
     }),
   }

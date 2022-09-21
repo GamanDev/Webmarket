@@ -4,9 +4,7 @@ import { gql } from "@apollo/client";
 import styles from "./Main.module.css";
 import ProductCard from "./ProductCard/ProductCard";
 
-console.log("a", window.location);
-
-class Main extends Component {
+class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
     if (loading) return null;
@@ -51,4 +49,4 @@ export default graphql(
       },
     }),
   }
-)(Main);
+)(Layout);
