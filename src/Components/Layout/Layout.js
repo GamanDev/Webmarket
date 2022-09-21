@@ -4,15 +4,14 @@ import { gql } from "@apollo/client";
 import styles from "./Main.module.css";
 import ProductCard from "./ProductCard/ProductCard";
 
-console.log("a", window.location);
-
 class Main extends Component {
   render() {
     const { loading, category } = this.props.data;
+    console.log(this.props);
     if (loading) return null;
     return (
       <div>
-        <h2>{category.name}</h2>
+        {/* <h2>{category.name}</h2> */}
         <div className={styles.products}>
           {category.products.map((product) => (
             <ProductCard key={product.id} {...product} />
@@ -25,7 +24,7 @@ class Main extends Component {
 
 export default graphql(
   gql`
-    query ($category: String! = "all") {
+    query ($category: String!) {
       category(input: { title: $category }) {
         name
         products {
@@ -47,7 +46,7 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        category: window.location.pathname.replace("/", ""),
+        category: window.location.pathname.replace("/bliminse/", ""),
       },
     }),
   }

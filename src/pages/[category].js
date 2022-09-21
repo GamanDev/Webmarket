@@ -4,27 +4,18 @@ import { gql } from "@apollo/client";
 import styles from "./Main.module.css";
 import ProductCard from "./ProductCard/ProductCard";
 
-console.log(window.location.pathname);
+console.log("a", window.location);
 
 class Main extends Component {
   render() {
-    const { category } = this.props.data;
-    if (!category) return null;
+    const { loading, category } = this.props.data;
+    if (loading) return null;
     return (
       <div>
         <h2>{category.name}</h2>
         <div className={styles.products}>
           {category.products.map((product) => (
-            <ProductCard
-              key={product.id}
-              url={product.gallery[0]}
-              name={product.name}
-              inStock={product.inStock}
-              symbol={product.prices[0].currency.symbol}
-              price={product.prices[0].amount}
-              id={product.id}
-              // {...product} use props in component
-            />
+            <ProductCard key={product.id} {...product} />
           ))}
         </div>
       </div>
@@ -34,7 +25,7 @@ class Main extends Component {
 
 export default graphql(
   gql`
-    query ($category: String! = "all") {
+    query ($category: String!) {
       category(input: { title: $category }) {
         name
         products {
@@ -56,7 +47,7 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        category: props.category,
+        category: window.location.pathname.replace("/", ""),
       },
     }),
   }

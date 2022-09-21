@@ -10,9 +10,7 @@ class App extends Component {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/:category" element={<Main />} />
-          {/* <Route path="/clothes" element={<Main category={"clothes"} />} />
-          <Route path="/tech" element={<Main category={"tech"} />} /> */}
+          <Route path="/bliminse/:category" element={<Main />} />
           <Route path="/product/:product_id" element={<Product />} />
         </Routes>
       </BrowserRouter>
