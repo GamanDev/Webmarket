@@ -1,8 +1,15 @@
-.main__product {
+.variants {
   display: flex;
 }
 
-/* .select {
+.check_color {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  margin: 1px;
+}
+
+.select {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +20,10 @@
   margin: 5px;
 }
 
+.prices {
+  display: flex;
+}
+
 .select:hover {
   background-color: rgba(0, 0, 0, 0.158);
 }
- */

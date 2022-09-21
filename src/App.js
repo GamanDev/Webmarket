@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Nav from "./Components/Navbar/Nav";
 import Product from "./pages/product/[product_id]";
@@ -9,18 +9,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Nav />
-        <Routes>
-          {/* <Route path="/bliminse/:category" element={<Layout />} /> */}
-
-          <Route path="/bliminse/all" element={<Layout category={"all"} />} />
+        <Switch>
           <Route
-            path="/bliminse/clothes"
-            element={<Layout category={"clothes"} />}
+            path="/bliminse/:category"
+            render={(props) => <Layout {...props} />}
           />
-          <Route path="/bliminse/tech" element={<Layout category={"tech"} />} />
-
-          <Route path="/product/:product_id" element={<Product />} />
-        </Routes>
+          <Route path="/product/:product_id" component={Product} />
+        </Switch>
       </BrowserRouter>
     );
   }

@@ -4,10 +4,10 @@ import { gql } from "@apollo/client";
 import styles from "./Main.module.css";
 import ProductCard from "./ProductCard/ProductCard";
 
-class Main extends Component {
+class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
-    console.log(this.props);
+    console.log("aa", this.props);
     if (loading) return null;
     return (
       <div>
@@ -47,8 +47,8 @@ export default graphql(
     options: (props) => ({
       variables: {
         // category: window.location.pathname.replace("/bliminse/", ""),
-        category: props.category,
+        category: props.location.pathname.replace("/bliminse/", ""),
       },
     }),
   }
-)(Main);
+)(Layout);
