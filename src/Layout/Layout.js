@@ -11,7 +11,7 @@ class Layout extends Component {
     if (loading) return null;
     return (
       <div>
-        {/* <h2>{category.name}</h2> */}
+        <h2>{category.name}</h2>
         <div className={styles.products}>
           {category.products.map((product) => (
             <ProductCard key={product.id} {...product} />
@@ -24,7 +24,7 @@ class Layout extends Component {
 
 export default graphql(
   gql`
-    query ($category: String!) {
+    query ($category: String! = "all") {
       category(input: { title: $category }) {
         name
         products {
@@ -47,7 +47,7 @@ export default graphql(
     options: (props) => ({
       variables: {
         // category: window.location.pathname.replace("/bliminse/", ""),
-        category: props.location.pathname.replace("/bliminse/", ""),
+        category: props.location.pathname.replace("/", ""),
       },
     }),
   }

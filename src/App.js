@@ -1,7 +1,9 @@
 import { Component } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Layout from "./Components/Layout/Layout";
-import Nav from "./Components/Navbar/Nav";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Layout from "./Layout/Layout";
+
+import Nav from "./Navbar/Nav";
+
 import Product from "./pages/product/[product_id]";
 
 class App extends Component {
@@ -10,11 +12,11 @@ class App extends Component {
       <BrowserRouter>
         <Nav />
         <Switch>
-          <Route
-            path="/bliminse/:category"
-            render={(props) => <Layout {...props} />}
-          />
+          <Route exact path="/">
+            <Redirect to="/all" />
+          </Route>
           <Route path="/product/:product_id" component={Product} />
+          <Route path="/:category" render={(props) => <Layout {...props} />} />
         </Switch>
       </BrowserRouter>
     );
