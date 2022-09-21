@@ -7,9 +7,9 @@ export default class Nav extends Component {
     return (
       <div className={styles.nav}>
         <div className={styles.nav__links}>
-          <Link to="/">All</Link>
-          <Link to="/Clothes">Clothes</Link>
-          <Link to="/Tech">Tech</Link>
+          <Link to="/all">All</Link>
+          <Link to="/clothes">Clothes</Link>
+          <Link to="/tech">Tech</Link>
         </div>
         <div>Green Logo</div>
         <div className={styles.nav__curr_n_cart}>

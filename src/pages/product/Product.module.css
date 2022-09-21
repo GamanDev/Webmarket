@@ -1,0 +1,18 @@
+.selectors {
+  display: flex;
+}
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+  margin: 5px;
+}
+
+.select:hover {
+  background-color: rgba(0, 0, 0, 0.158);
+}
+/*  */

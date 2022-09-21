@@ -1,28 +1,42 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
+import styles from "./Product.module.css";
+
+// semantic tags
+// product/:product_id
+//loading graphql
+// react categoryze
+//this.location...
 
 class Product extends Component {
   render() {
-    console.log(this.props.data.product);
-    const { product } = this.props.data;
+    const { loading, product } = this.props.data;
+    console.log(product);
+    if (loading) return null;
     return (
-      <>
-        {this.props.data.product && (
-          <div>
-            <div>{product.brand}</div>
-            <div>{product.category}</div>
-            <div>
-              {product.attributes[0].items.map((atr) => (
-                <div>{atr.value}</div>
-              ))}
+      <div>
+        <div>{product.brand}</div>
+        <div>{product.category}</div>
+        <div>
+          {product.attributes.map((attribute) => (
+            <div key={attribute.id}>
+              <div>{attribute.name}</div>
+              <div className={styles.selectors}>
+                {attribute.items.map((item) => (
+                  <div key={item.id} className={styles.select}>
+                    {item.value}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-      </>
+          ))}
+        </div>
+      </div>
     );
   }
 }
+
 export default graphql(
   gql`
     query ($id: String!) {

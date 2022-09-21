@@ -1,32 +1,31 @@
 import React, { Component } from "react";
-import Card from "./Card/Card";
-import styles from "./Main.module.css";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
+import styles from "./Main.module.css";
+import ProductCard from "./ProductCard/ProductCard";
+
+console.log(window.location.pathname);
 
 class Main extends Component {
   render() {
-    const {
-      data: { variables },
-    } = this.props;
-
-    console.log(this.props);
+    const { category } = this.props.data;
+    if (!category) return null;
     return (
       <div>
-        <h2>{123}</h2>
+        <h2>{category.name}</h2>
         <div className={styles.products}>
-          {this.props.data.category &&
-            this.props.data.category.products.map((product) => (
-              <Card
-                key={product.id}
-                url={product.gallery[0]}
-                name={product.name}
-                inStock={product.inStock}
-                symbol={product.prices[0].currency.symbol}
-                price={product.prices[0].amount}
-                id={product.id}
-              />
-            ))}
+          {category.products.map((product) => (
+            <ProductCard
+              key={product.id}
+              url={product.gallery[0]}
+              name={product.name}
+              inStock={product.inStock}
+              symbol={product.prices[0].currency.symbol}
+              price={product.prices[0].amount}
+              id={product.id}
+              // {...product} use props in component
+            />
+          ))}
         </div>
       </div>
     );
@@ -35,7 +34,7 @@ class Main extends Component {
 
 export default graphql(
   gql`
-    query ($category: String!) {
+    query ($category: String! = "all") {
       category(input: { title: $category }) {
         name
         products {

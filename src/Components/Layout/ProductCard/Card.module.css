@@ -14,9 +14,6 @@
   position: relative;
 }
 
-.text {
-  display: none;
-}
 .no_text {
   position: absolute;
   left: 32.42%;
