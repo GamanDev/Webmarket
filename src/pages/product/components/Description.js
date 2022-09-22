@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import styles from "./Description.module.css";
-import { v4 as uuid } from "uuid";
 import { connect } from "react-redux";
+import styles from "./Description.module.css";
 
 class Description extends Component {
   constructor(props) {
@@ -15,12 +14,11 @@ class Description extends Component {
   };
 
   render() {
-    const unique_id = uuid();
-
-    console.log("state", this.state);
     const { brand, name, description, prices, attributes, inStock } =
       this.props.product;
+
     const { currency } = this.props;
+
     if (!this.props.product) return null;
 
     return (
@@ -60,7 +58,6 @@ class Description extends Component {
                         this.setState({
                           ...this.state,
                           [attribute.name]: item.value,
-                          id: unique_id,
                           name,
                         })
                       }
@@ -79,11 +76,9 @@ class Description extends Component {
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
         </div>
-        {inStock ? (
-          <button>ADD TO CART</button>
-        ) : (
-          <button disabled>ADD TO CART</button>
-        )}
+
+        <button disabled={!inStock}>ADD TO CART</button>
+
         <article dangerouslySetInnerHTML={{ __html: description }}></article>
       </form>
     );

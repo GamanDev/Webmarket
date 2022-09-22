@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styles from "./Navcart.module.css";
+import styles from "./Cart.module.css";
 
-export default class NavCart extends Component {
+export default class Cart extends Component {
   render() {
     const { toggleCart } = this.props;
     return (

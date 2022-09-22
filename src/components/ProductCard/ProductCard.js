@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-
 import cx from "classnames";
-import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import styles from "./Card.module.css";
 
 class ProductCard extends Component {
   render() {
     const { name, gallery, prices, inStock, id, currency } = this.props;
+
     return (
       <Link
         to={`/product/${id}`}

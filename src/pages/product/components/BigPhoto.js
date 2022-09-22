@@ -4,6 +4,7 @@ import styles from "./Bigphoto.module.css";
 export default class BigPhoto extends Component {
   render() {
     const { gallery, photoIndex } = this.props;
+
     return (
       <img
         src={gallery[photoIndex]}
