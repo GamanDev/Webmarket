@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addItemToCart } from "../../../redux/Actions";
 import styles from "./Description.module.css";
 
 class Description extends Component {
@@ -10,7 +11,16 @@ class Description extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    let key_unique = "";
+    let product = {};
+    for (const item in this.state) {
+      key_unique += `${item}-${this.state[item]}`;
+      product[item] = this.state[item];
+    }
+    product.key_unique = key_unique;
+    product.count = 1;
+    this.props.addItem(product);
+    console.log(product);
   };
 
   render() {
@@ -18,6 +28,7 @@ class Description extends Component {
       this.props.product;
 
     const { currency } = this.props;
+    const { id } = this.props.product;
 
     if (!this.props.product) return null;
 
@@ -34,7 +45,7 @@ class Description extends Component {
 
               {attribute.items.map((item) => (
                 <label key={item.value} name={attribute.name}>
-                  <input type="radio" name={attribute.name} />
+                  <input type="radio" name={attribute.name} required />
                   {attribute.name === "Color" ? (
                     <div
                       key={item.id}
@@ -58,7 +69,7 @@ class Description extends Component {
                         this.setState({
                           ...this.state,
                           [attribute.name]: item.value,
-                          name,
+                          id,
                         })
                       }
                     >
@@ -71,7 +82,7 @@ class Description extends Component {
             </div>
           </div>
         ))}
-        <h4>{this.props.product.prices[0].__typename.toUpperCase()}:</h4>
+        <h4>PRICE:</h4>
         <div className={styles.prices}>
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
@@ -88,7 +99,14 @@ class Description extends Component {
 function mapStateToProps(state) {
   return {
     currency: state.currency.currencyIndex,
+    itemInCart: state.cart.ItemsInCart,
   };
 }
 
-export default connect(mapStateToProps)(Description);
+function mapDispatchToProps(dispatch) {
+  return {
+    addItem: (item) => dispatch(addItemToCart(item)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Description);

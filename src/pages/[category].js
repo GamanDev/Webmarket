@@ -7,7 +7,7 @@ import styles from "./Category.module.css";
 class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
-
+    console.log("category", this.props.match.params.category);
     if (loading) return null;
 
     return (
@@ -47,8 +47,7 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        // category: window.location.pathname.replace("/bliminse/", ""),
-        category: props.location.pathname.replace("/", ""),
+        category: props.match.params.category,
       },
     }),
   }
