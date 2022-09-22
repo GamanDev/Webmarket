@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import cx from "classnames";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class ProductCard extends Component {
+class ProductCard extends Component {
   render() {
-    const { name, gallery, prices, inStock, id } = this.props;
+    const { name, gallery, prices, inStock, id, currency } = this.props;
     return (
       <Link
         to={`/product/${id}`}
@@ -15,8 +16,8 @@ export default class ProductCard extends Component {
         <img src={gallery[0]} alt="pic" className={styles.card__image} />
         <div>{name}</div>
         <div className={styles.price}>
-          <div>{prices[0].currency.symbol}</div>
-          <div>{prices[0].amount}</div>
+          <div>{prices[currency].currency.symbol}</div>
+          <div>{prices[currency].amount}</div>
         </div>
 
         {!inStock && <div className={styles.no_text}>Out Of Stock</div>}
@@ -24,3 +25,11 @@ export default class ProductCard extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    currency: state.currency.currencyIndex,
+  };
+}
+
+export default connect(mapStateToProps)(ProductCard);

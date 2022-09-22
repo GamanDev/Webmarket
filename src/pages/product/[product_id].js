@@ -16,13 +16,13 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0,
+      photoIndex: 0,
     };
   }
 
-  setPhotoIndex = (index) => {
+  setPhotoIndex = (photoIndex) => {
     this.setState({
-      index,
+      photoIndex,
     });
   };
 
@@ -36,7 +36,10 @@ class Product extends Component {
           gallery={product.gallery}
           setPhotoIndex={this.setPhotoIndex}
         />
-        <BigPhoto gallery={product.gallery} index={this.state.index} />
+        <BigPhoto
+          gallery={product.gallery}
+          photoIndex={this.state.photoIndex}
+        />
         <Description product={product} />
       </main>
     );

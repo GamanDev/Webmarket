@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Description.module.css";
+import { v4 as uuid } from "uuid";
 
 export default class Description extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ export default class Description extends Component {
   };
 
   render() {
+    const unique_id = uuid();
+
     console.log("state", this.state);
     const { brand, name, description, prices, attributes, inStock } =
       this.props.product;
@@ -56,6 +59,8 @@ export default class Description extends Component {
                         this.setState({
                           ...this.state,
                           [attribute.name]: item.value,
+                          id: unique_id,
+                          name,
                         })
                       }
                     >

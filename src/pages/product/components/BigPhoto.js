@@ -3,10 +3,10 @@ import styles from "./Bigphoto.module.css";
 
 export default class BigPhoto extends Component {
   render() {
-    const { gallery, index } = this.props;
+    const { gallery, photoIndex } = this.props;
     return (
       <img
-        src={gallery[index]}
+        src={gallery[photoIndex]}
         alt="product_picture"
         className={styles.big_photo}
       />

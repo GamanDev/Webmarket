@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
-import styles from "./Main.module.css";
-import ProductCard from "./ProductCard/ProductCard";
+import styles from "./Category.module.css";
+import ProductCard from "../ProductCard/ProductCard";
 
 class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
+    console.log("aa", this.props);
     if (loading) return null;
     return (
       <div>
@@ -23,7 +24,7 @@ class Layout extends Component {
 
 export default graphql(
   gql`
-    query ($category: String!) {
+    query ($category: String! = "all") {
       category(input: { title: $category }) {
         name
         products {
@@ -45,7 +46,8 @@ export default graphql(
   {
     options: (props) => ({
       variables: {
-        category: window.location.pathname.replace("/", ""),
+        // category: window.location.pathname.replace("/bliminse/", ""),
+        category: props.location.pathname.replace("/", ""),
       },
     }),
   }
