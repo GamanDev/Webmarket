@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
+import ProductCard from "../components/ProductCard/ProductCard";
 import styles from "./Category.module.css";
-import ProductCard from "../ProductCard/ProductCard";
 
 class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
-    console.log("aa", this.props);
+
     if (loading) return null;
+
     return (
       <div>
         <h2>{category.name}</h2>

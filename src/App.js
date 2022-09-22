@@ -2,7 +2,7 @@ import { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Layout from "./pages/[category]";
 
-import Nav from "./Navbar/Nav";
+import Nav from "./components/Navbar";
 
 import Product from "./pages/product/[product_id]";
 

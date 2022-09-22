@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
-import styles from "./Product.module.css";
 import Description from "./components/Description";
 import PhotoCarousel from "./components/PhotoCarousel";
 import BigPhoto from "./components/BigPhoto";
+import styles from "./Product.module.css";
 
 // semantic tags
 // product/:product_id
@@ -28,8 +28,9 @@ class Product extends Component {
 
   render() {
     const { loading, product } = this.props.data;
-    console.log(product);
+
     if (loading) return null;
+
     return (
       <main className={styles.main__product}>
         <PhotoCarousel
