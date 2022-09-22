@@ -15,12 +15,17 @@ import styles from "./Product.module.css";
 
 class Item extends Component {
   render() {
-    console.log("Item props", this.props);
+    if (this.props.data.loading) return null;
+
+    const { product } = this.props.data;
+    const { gallery } = this.props.data.product;
+    console.log(product);
+    const { item } = this.props;
     return (
       <main className={styles.product}>
-        <Description />
+        <Description item={item} product={product} />
         <Counter />
-        <Image />
+        <Image gallery={gallery} />
       </main>
     );
   }

@@ -11,7 +11,7 @@ class Product extends Component {
     return (
       <>
         {ItemsInCart.map((item) => (
-          <Item key={uuidv4()} id={item.id} />
+          <Item key={uuidv4()} id={item.id} item={item} />
         ))}
       </>
     );
