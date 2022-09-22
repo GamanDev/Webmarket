@@ -5,10 +5,10 @@ import styles from "./Currency.module.css";
 
 class Currency extends Component {
   render() {
-    const { prices, currencySelector } = this.props;
+    const { prices, currencySelector, toogleCurrency } = this.props;
     if (!prices) return null;
     return (
-      <div className={styles.currency}>
+      <div className={styles.currency} onClick={toogleCurrency}>
         {prices.map((curr, i) => (
           <div
             key={curr.currency.symbol}

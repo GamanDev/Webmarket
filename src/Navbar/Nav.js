@@ -10,7 +10,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCurrSelectOpen: true,
+      isCurrSelectOpen: false,
       isCartOpen: false,
     };
   }
@@ -18,12 +18,20 @@ class Nav extends Component {
   toggleCart = (e) => {
     e.stopPropagation();
     this.setState({
+      ...this.state,
       isCartOpen: !this.state.isCartOpen,
     });
   };
 
+  toogleCurrency = (e) => {
+    this.setState({
+      ...this.state,
+      isCurrSelectOpen: !this.state.isCurrSelectOpen,
+    });
+  };
   render() {
-    if (!this.props.data) return null;
+    console.log(this.props);
+    if (this.props.data.loading) return null;
     return (
       <div className={styles.nav}>
         <div className={styles.nav__links}>
@@ -33,10 +41,11 @@ class Nav extends Component {
         </div>
         <div>Green Logo</div>
         <div className={styles.nav__curr_n_cart}>
-          <div>$</div>
+          <div onClick={this.toogleCurrency}>$</div>
           {this.state.isCurrSelectOpen && (
             <Currency
               prices={this.props.data.categories[0].products[0].prices}
+              toogleCurrency={this.toogleCurrency}
             />
           )}
           <div onClick={this.toggleCart}>Cart</div>

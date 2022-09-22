@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styles from "./Description.module.css";
 import { v4 as uuid } from "uuid";
+import { connect } from "react-redux";
 
-export default class Description extends Component {
+class Description extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -19,7 +20,7 @@ export default class Description extends Component {
     console.log("state", this.state);
     const { brand, name, description, prices, attributes, inStock } =
       this.props.product;
-
+    const { currency } = this.props;
     if (!this.props.product) return null;
 
     return (
@@ -75,8 +76,8 @@ export default class Description extends Component {
         ))}
         <h4>{this.props.product.prices[0].__typename.toUpperCase()}:</h4>
         <div className={styles.prices}>
-          <div>{prices[0].currency.symbol}</div>
-          <div>{prices[0].amount}</div>
+          <div>{prices[currency].currency.symbol}</div>
+          <div>{prices[currency].amount}</div>
         </div>
         {inStock ? (
           <button>ADD TO CART</button>
@@ -88,3 +89,11 @@ export default class Description extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    currency: state.currency.currencyIndex,
+  };
+}
+
+export default connect(mapStateToProps)(Description);
