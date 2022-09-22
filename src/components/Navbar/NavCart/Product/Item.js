@@ -1,46 +1,26 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
+import Counter from "./components/Counter";
 import Description from "./components/Description";
-import PhotoCarousel from "./components/PhotoCarousel";
-import BigPhoto from "./components/BigPhoto";
+import Image from "./components/Image";
 import styles from "./Product.module.css";
 
-// semantic tags
-// product/:product_id
-//loading graphql
-// react categoryze
-//this.location...
+// Capacity:"256GB"
+// Touch ID in keyboard: "Yes"
+// With USB 3 ports:  "Yes"
+// count:  2
+// id : "apple-imac-2021"
+// key_unique : "Capacity-256GBid-apple-imac-2021With USB 3 ports-YesTouch ID in keyboard-Yes"
 
-class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photoIndex: 0,
-    };
-  }
-
-  setPhotoIndex = (photoIndex) => {
-    this.setState({
-      photoIndex,
-    });
-  };
-
+class Item extends Component {
   render() {
-    const { loading, product } = this.props.data;
-    if (loading) return null;
-
+    console.log("Item props", this.props);
     return (
-      <main className={styles.main__product}>
-        <PhotoCarousel
-          gallery={product.gallery}
-          setPhotoIndex={this.setPhotoIndex}
-        />
-        <BigPhoto
-          gallery={product.gallery}
-          photoIndex={this.state.photoIndex}
-        />
-        <Description product={product} />
+      <main className={styles.product}>
+        <Description />
+        <Counter />
+        <Image />
       </main>
     );
   }
@@ -81,8 +61,8 @@ export default graphql(
     options: (props) => ({
       fetchPolicy: "network-only",
       variables: {
-        id: props.match.params.product_id,
+        id: props.id,
       },
     }),
   }
-)(Product);
+)(Item);

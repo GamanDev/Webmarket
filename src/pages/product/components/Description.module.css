@@ -34,28 +34,27 @@
   background-color: rgba(0, 0, 0, 0.158);
 }
 
-/* 
 input[type="radio"] {
   display: none;
 }
-input[type="radio"]:checked + .boxes {
+input[type="radio"]:checked + .select {
   background-color: #1d1f22;
 }
 
-input[type="radio"]:checked + .boxes {
+input[type="radio"]:checked + .select {
   color: #ffffff;
 }
 
 input[name="Color"] {
   display: none;
 }
-input[name="Color"]:checked + .boxes__color {
+input[name="Color"]:checked + .check_color {
   border: 1px solid #5ece7b;
   padding: 12px;
 }
 
-.boxes,
-.boxes__color {
+.select,
+.check_color {
   display: flex;
   width: 63px;
   height: 45px;
@@ -68,7 +67,7 @@ input[name="Color"]:checked + .boxes__color {
   cursor: pointer;
 }
 
-
-
-
-*/
+.check_color {
+  width: 32px;
+  height: 32px;
+}
