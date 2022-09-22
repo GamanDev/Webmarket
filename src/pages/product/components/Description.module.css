@@ -1,0 +1,74 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  max-width: 292px;
+}
+
+.variants {
+  display: flex;
+}
+
+.check_color {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  margin: 1px;
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+  margin: 5px;
+}
+
+.prices {
+  display: flex;
+}
+
+.select:hover {
+  background-color: rgba(0, 0, 0, 0.158);
+}
+
+/* 
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + .boxes {
+  background-color: #1d1f22;
+}
+
+input[type="radio"]:checked + .boxes {
+  color: #ffffff;
+}
+
+input[name="Color"] {
+  display: none;
+}
+input[name="Color"]:checked + .boxes__color {
+  border: 1px solid #5ece7b;
+  padding: 12px;
+}
+
+.boxes,
+.boxes__color {
+  display: flex;
+  width: 63px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1d1f22;
+  user-select: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+
+
+
+*/
