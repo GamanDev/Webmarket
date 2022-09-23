@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItemToCart } from "../../../../../redux/Actions";
+import {
+  addItemToCart,
+  removeItemFromCart,
+} from "../../../../../redux/Actions";
 import styles from "./Counter.module.css";
 
 class Counter extends Component {
   render() {
-    const { count, key_unique, addItem } = this.props;
-    console.log("pp", count);
+    const { count, key_unique, addItem, removeItem } = this.props;
+
     return (
       <div className={styles.counter}>
         <button
@@ -16,7 +19,12 @@ class Counter extends Component {
           +
         </button>
         <section>{count}</section>
-        <button className={styles.cart__buttons}>-</button>
+        <button
+          className={styles.cart__buttons}
+          onClick={() => removeItem({ key_unique })}
+        >
+          -
+        </button>
       </div>
     );
   }
@@ -25,6 +33,7 @@ class Counter extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     addItem: (id) => dispatch(addItemToCart(id)),
+    removeItem: (id) => dispatch(removeItemFromCart(id)),
   };
 }
 

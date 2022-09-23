@@ -20,11 +20,11 @@ class Item extends Component {
     const { product } = this.props.data;
     const { gallery } = this.props.data.product;
     const { item } = this.props;
-    console.log("123", item);
+
     return (
       <main className={styles.product}>
         <Description item={item} product={product} />
-        <Counter count={item.count} />
+        <Counter count={item.count} key_unique={item.key_unique} />
         <Image gallery={gallery} />
       </main>
     );

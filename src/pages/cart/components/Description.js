@@ -28,11 +28,11 @@ export default class Description extends Component {
         <h4>{brand}</h4>
         <h4>{name}</h4>
         <div>Price: $50.00</div>
-        <div>
+        <div className={styles.variants}>
           {attributes.map((attribute) => (
             <div key={attribute.id}>
               <h4>{attribute.name}</h4>
-              <div className={styles.variants}>
+              <div className={styles.variants_attribute}>
                 {attribute.items.map((item) => (
                   <label key={item.value} name={attribute.name}>
                     {item.value === this.state[attribute.name] ? (

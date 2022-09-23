@@ -14,10 +14,8 @@ export default class Description extends Component {
   }
 
   render() {
-    console.log("item", this.props.item);
-    console.log("descr", this.props.product);
     const { brand, name, prices, attributes } = this.props.product;
-    console.log(this.state);
+
     return (
       <main>
         <h4>{brand}</h4>
