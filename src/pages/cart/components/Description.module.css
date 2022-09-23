@@ -1,3 +1,77 @@
 .cart__description {
   margin-right: auto;
 }
+.description {
+  display: flex;
+  flex-direction: column;
+  max-width: 292px;
+}
+
+.variants {
+  display: flex;
+}
+
+.check_color {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  margin: 1px;
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+  margin: 5px;
+}
+
+.prices {
+  display: flex;
+}
+
+.select:hover {
+  background-color: rgba(0, 0, 0, 0.158);
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + .select {
+  background-color: #1d1f22;
+}
+
+input[type="radio"]:checked + .select {
+  color: #ffffff;
+}
+
+input[name="Color"] {
+  display: none;
+}
+input[name="Color"]:checked + .check_color {
+  border: 1px solid #5ece7b;
+  padding: 12px;
+}
+
+.select,
+.check_color {
+  display: flex;
+  width: 12px;
+  height: 12px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1d1f22;
+  user-select: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.check_color {
+  width: 4px;
+  height: 4px;
+}

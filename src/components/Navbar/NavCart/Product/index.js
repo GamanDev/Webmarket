@@ -7,8 +7,6 @@ class Product extends Component {
   render() {
     if (!this.props.ItemsInCart) return null;
 
-    console.log(this.props.ItemsInCart, "kk");
-
     const { ItemsInCart } = this.props;
     return (
       <>
