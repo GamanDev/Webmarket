@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styles from "./Description.module.css";
 
 // With USB 3 ports
@@ -6,7 +7,7 @@ import styles from "./Description.module.css";
 // Capacity
 // Size
 
-export default class Description extends Component {
+class Description extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,15 +20,16 @@ export default class Description extends Component {
   }
 
   render() {
-    console.log("item", this.props.item);
-    console.log("descr", this.props.product);
     const { brand, name, prices, attributes } = this.props.product;
-    console.log("big state", this.state);
+    const { currency } = this.props;
     return (
       <main className={styles.cart__description}>
         <h4>{brand}</h4>
         <h4>{name}</h4>
-        <div>Price: $50.00</div>
+        <div className={styles.prices}>
+          <div>{prices[currency].currency.symbol}</div>
+          <div>{prices[currency].amount}</div>
+        </div>
         <div className={styles.variants}>
           {attributes.map((attribute) => (
             <div key={attribute.id}>
@@ -86,3 +88,11 @@ export default class Description extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    currency: state.currency.currencyIndex,
+  };
+}
+
+export default connect(mapStateToProps)(Description);

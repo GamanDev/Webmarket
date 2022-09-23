@@ -30,10 +30,6 @@
   display: flex;
 }
 
-.select:hover {
-  background-color: rgba(0, 0, 0, 0.158);
-}
-
 input[type="radio"] {
   display: none;
 }
@@ -49,8 +45,8 @@ input[name="Color"] {
   display: none;
 }
 input[name="Color"]:checked + .check_color {
-  border: 1px solid #5ece7b;
-  padding: 12px;
+  outline: 1px solid #5ece7b;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .select,
@@ -64,7 +60,6 @@ input[name="Color"]:checked + .check_color {
   user-select: none;
   padding: 10px;
   margin: 5px;
-  cursor: pointer;
   font-size: 10px;
 }
 

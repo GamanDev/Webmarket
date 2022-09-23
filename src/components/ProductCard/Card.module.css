@@ -4,9 +4,10 @@
   justify-content: center;
   width: 386px;
   height: 444px;
-  padding-left: 16px;
+
   box-sizing: border-box;
-  margin: 40px;
+  margin: 26px;
+  padding: 20px;
 }
 
 .card_outOfStock {

@@ -2,6 +2,8 @@
   display: flex;
   margin-left: 5px;
   margin-bottom: 10px;
-  height: 336px;
-  border: 1px solid red;
+  min-height: 336px;
+  max-height: 336px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
 }
