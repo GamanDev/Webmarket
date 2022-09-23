@@ -12,16 +12,13 @@ class Description extends Component {
   submitForm = (e) => {
     e.preventDefault();
     let key_unique = "";
-    let product = {
-      attributes: [],
-    };
+    let product = {};
     for (const item in this.state) {
       key_unique += `${item}-${this.state[item]}`;
-      product.attributes.push({ [item]: this.state[item] });
+      product[item] = this.state[item];
     }
     product.key_unique = key_unique;
     product.count = 1;
-    product.id = this.state.id;
     this.props.addItem(product);
     console.log(product);
   };

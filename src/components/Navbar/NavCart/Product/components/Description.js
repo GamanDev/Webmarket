@@ -6,7 +6,6 @@ export default class Description extends Component {
     console.log("item", this.props.item);
     console.log("descr", this.props.product);
     const { brand, name, prices, attributes } = this.props.product;
-    const { item } = this.props;
     return (
       <main>
         <h4>{brand}</h4>
@@ -21,7 +20,7 @@ export default class Description extends Component {
 
                 {attribute.items.map((item) => (
                   <label key={item.value} name={attribute.name}>
-                    <input type="radio" name={attribute.name} />
+                    <input type="radio" name={attribute.name} defaultChecked />
                     {attribute.name === "Color" ? (
                       <div
                         key={item.id}
