@@ -4,7 +4,7 @@ import { gql } from "@apollo/client";
 import Counter from "./components/Counter";
 import Description from "./components/Description";
 import Image from "./components/Image";
-import styles from "./Product.module.css";
+import styles from "./Item.module.css";
 
 // Capacity:"256GB"
 // Touch ID in keyboard: "Yes"
@@ -20,10 +20,11 @@ class Item extends Component {
     const { product } = this.props.data;
     const { gallery } = this.props.data.product;
     const { item } = this.props;
+    console.log("123", item);
     return (
       <main className={styles.product}>
         <Description item={item} product={product} />
-        <Counter count={item.count} key_unique={item.key_unique} />
+        <Counter count={item.count} />
         <Image gallery={gallery} />
       </main>
     );

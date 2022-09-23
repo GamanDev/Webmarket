@@ -19,6 +19,7 @@ class Nav extends Component {
               {category.name.toUpperCase()}
             </Link>
           ))}
+          <Link to="/cart">Cart</Link>
         </div>
         <div>Green Logo</div>
         <div className={styles.nav__curr_n_cart}>
