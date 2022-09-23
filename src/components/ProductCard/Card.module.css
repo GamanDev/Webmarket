@@ -6,7 +6,7 @@
   height: 444px;
   padding-left: 16px;
   box-sizing: border-box;
-  flex-basis: 450px;
+  margin: 40px;
 }
 
 .card_outOfStock {
@@ -30,10 +30,12 @@
 }
 
 .card__image {
+  display: flex;
+  object-fit: contain;
+  min-width: 356px;
   max-width: 356px;
   max-height: 338px;
-  display: flex;
-  margin: 0 auto;
+  min-height: 338px;
 }
 .price {
   display: flex;
