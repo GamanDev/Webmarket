@@ -5,8 +5,8 @@ import Item from "./Item";
 
 class Product extends Component {
   render() {
-    console.log(this.props.ItemsInCart);
     if (!this.props.ItemsInCart) return null;
+
     const { ItemsInCart } = this.props;
     return (
       <>

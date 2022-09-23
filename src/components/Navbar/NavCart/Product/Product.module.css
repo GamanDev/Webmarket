@@ -1,6 +1,6 @@
 .product {
   display: flex;
   justify-content: space-between;
-  border: 2px solid green;
-  margin: 2px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }

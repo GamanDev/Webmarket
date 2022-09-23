@@ -13,9 +13,8 @@
 .cart {
   display: block;
   position: fixed;
-  top: 0;
-  min-width: 350px;
-  max-width: 350px;
+  min-width: 325px;
+  max-width: 325px;
   min-height: 677px;
   max-height: 677px;
   background-color: rgb(255, 255, 255);
