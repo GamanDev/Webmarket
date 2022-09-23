@@ -4,6 +4,7 @@ const initialState = {
 //  {key: unique_key, count: 1, [attribute] : attribute.value}
 
 export const ADD_ITEM = "ADD_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,13 +19,19 @@ const cartReducer = (state = initialState, action) => {
             (el) => el.key_unique === action.payload.key_unique
           )
         ].count++;
-        return { ...state };
+        return { ItemsInCart: [...state.ItemsInCart] };
       } else {
         return {
           ItemsInCart: [...state.ItemsInCart, action.payload],
         };
       }
-
+    case REMOVE_ITEM:
+      state.ItemsInCart[
+        state.ItemsInCart.findIndex(
+          (el) => el.key_unique === action.payload.key_unique
+        )
+      ].count--;
+      return { ItemsInCart: state.ItemsInCart.filter((el) => el.count > 0) };
     default:
       return state;
   }

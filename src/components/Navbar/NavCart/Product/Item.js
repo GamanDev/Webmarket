@@ -16,7 +16,6 @@ import styles from "./Product.module.css";
 class Item extends Component {
   render() {
     if (this.props.data.loading) return null;
-
     const { product } = this.props.data;
     const { gallery } = this.props.data.product;
     const { item } = this.props;

@@ -4,11 +4,6 @@ import { addItemToCart } from "../../../redux/Actions";
 import styles from "./Description.module.css";
 
 class Description extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   submitForm = (e) => {
     e.preventDefault();
     let key_unique = "";
@@ -50,7 +45,6 @@ class Description extends Component {
                     <div
                       key={item.id}
                       className={styles.check_color}
-                      value={this.state[attribute.name]}
                       style={{
                         background: `${item.value}`,
                       }}

@@ -5,11 +5,8 @@ import Item from "./Item";
 
 class Product extends Component {
   render() {
-    if (!this.props.ItemsInCart) return null;
-
-    console.log(this.props.ItemsInCart, "kk");
-
     const { ItemsInCart } = this.props;
+    if (!ItemsInCart.length) return <div>Cart Is Empty</div>;
     return (
       <>
         {ItemsInCart.map((item) => (
