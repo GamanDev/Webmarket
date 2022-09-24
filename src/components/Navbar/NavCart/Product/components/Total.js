@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cx from "classnames";
 import styles from "./Total.module.css";
 
 export default class Total extends Component {
@@ -20,8 +21,14 @@ export default class Total extends Component {
             </div>
           </div>
         </div>
-        <button>VIEW BAG</button>
-        <button>CHECK OUT</button>
+        <div className={styles.buttons_flex}>
+          <button className={cx(styles.buttons, styles.buttons_viewbag)}>
+            VIEW BAG
+          </button>
+          <button className={cx(styles.buttons, styles.buttons_checkout)}>
+            CHECK OUT
+          </button>
+        </div>
       </main>
     );
   }

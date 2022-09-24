@@ -1,12 +1,36 @@
 .total {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
 }
 
 .amount {
   display: flex;
-  margin-right: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 160%;
+}
+
+.buttons_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  border: none;
+  width: 140px;
+  height: 43px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.buttons_viewbag {
+  border: 1px solid #1d1f22;
+}
+
+.buttons_checkout {
+  background: #5ece7b;
+  color: white;
 }

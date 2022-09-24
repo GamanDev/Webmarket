@@ -1,7 +1,14 @@
 .description {
   display: flex;
   flex-direction: column;
-  max-width: 292px;
+  justify-content: space-between;
+  margin-right: auto;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
 }
 
 .variants {
@@ -9,25 +16,36 @@
 }
 
 .check_color {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   border: 1px solid black;
   margin: 1px;
 }
 
 .select {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  width: 24px;
+  height: 24px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 1px;
+}
+
+div[name="Capacity"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  width: 24px;
-  height: 24px;
-  padding: 16px;
-  margin: 5px;
+  font-size: 10px;
 }
 
 .prices {
   display: flex;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
 }
 
 input[type="radio"] {
@@ -47,23 +65,4 @@ input[name="Color"] {
 input[name="Color"]:checked + .check_color {
   outline: 1px solid #5ece7b;
   border: 1px solid rgb(255, 255, 255);
-}
-
-.select,
-.check_color {
-  display: flex;
-  width: 12px;
-  height: 12px;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #1d1f22;
-  user-select: none;
-  padding: 10px;
-  margin: 2px;
-  font-size: 10px;
-}
-
-.check_color {
-  width: 4px;
-  height: 4px;
 }

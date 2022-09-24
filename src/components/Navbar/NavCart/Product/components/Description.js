@@ -19,9 +19,11 @@ class Description extends Component {
     const { currency } = this.props;
     console.log("desc", prices);
     return (
-      <main>
-        <h4>{brand}</h4>
-        <h4>{name}</h4>
+      <main className={styles.description}>
+        <div>
+          <h4>{brand}</h4>
+          <h4>{name}</h4>
+        </div>
         <div className={styles.prices}>
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
@@ -50,7 +52,11 @@ class Description extends Component {
                             }}
                           ></div>
                         ) : (
-                          <div key={item.id} className={styles.select}>
+                          <div
+                            key={item.id}
+                            name={attribute.name}
+                            className={styles.select}
+                          >
                             {item.value}
                           </div>
                         )}
@@ -67,7 +73,11 @@ class Description extends Component {
                             }}
                           ></div>
                         ) : (
-                          <div key={item.id} className={styles.select}>
+                          <div
+                            key={item.id}
+                            className={styles.select}
+                            name={attribute.name}
+                          >
                             {item.value}
                           </div>
                         )}
