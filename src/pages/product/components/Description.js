@@ -82,7 +82,18 @@ class Description extends Component {
           <div>{prices[currency].amount}</div>
         </div>
 
-        <button disabled={!inStock}>ADD TO CART</button>
+        <button
+          disabled={!inStock}
+          onClick={() =>
+            this.setState({
+              ...this.state,
+              id,
+              prices,
+            })
+          }
+        >
+          ADD TO CART
+        </button>
 
         <article dangerouslySetInnerHTML={{ __html: description }}></article>
       </form>

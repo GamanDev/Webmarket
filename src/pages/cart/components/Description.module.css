@@ -9,18 +9,8 @@ h4 {
   margin-right: auto;
 }
 
-.variants {
-  margin: 0;
-}
 .variants_attribute {
   display: flex;
-}
-
-.check_color {
-  width: 32px;
-  height: 32px;
-  border: 1px solid black;
-  margin: 1px;
 }
 
 .select {
@@ -30,7 +20,7 @@ h4 {
   border: 1px solid black;
   width: 24px;
   height: 24px;
-  padding: 16px;
+
   margin: 5px;
 }
 
@@ -44,10 +34,8 @@ h4 {
   width: 63px;
   height: 45px;
   border: 1px solid #1d1f22;
-  user-select: none;
-  padding: 10px;
   margin: 5px;
-  font-size: 10px;
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -71,6 +59,8 @@ input[name="Color"] {
   display: none;
 }
 input[name="Color"]:checked + .check_color {
-  outline: 1px solid #5ece7b;
-  border: 1px solid rgb(255, 255, 255);
+  width: 32px;
+  height: 32px;
+  outline: 2px solid #5ece7b;
+  border: 2px solid rgb(255, 255, 255);
 }

@@ -1,0 +1,12 @@
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  display: flex;
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+}
