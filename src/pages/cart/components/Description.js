@@ -24,8 +24,10 @@ class Description extends Component {
     const { currency } = this.props;
     return (
       <main className={styles.cart__description}>
-        <h4>{brand}</h4>
-        <h4>{name}</h4>
+        <div>
+          <h4>{brand}</h4>
+          <h4>{name}</h4>
+        </div>
         <div className={styles.prices}>
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
