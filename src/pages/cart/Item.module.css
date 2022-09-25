@@ -1,7 +1,9 @@
 .product {
   display: flex;
-  min-height: 336px;
-  max-height: 336px;
+  min-height: 288px;
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
+  margin-top: 24px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
