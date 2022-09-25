@@ -1,0 +1,17 @@
+.main {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.myBag {
+  display: flex;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.cart__count {
+  font-weight: 400;
+}

@@ -18,7 +18,7 @@ class Counter extends Component {
         >
           +
         </button>
-        <section>{count}</section>
+        <section className={styles.count}>{count}</section>
         <button
           className={styles.cart__buttons}
           onClick={() => removeItem({ key_unique })}

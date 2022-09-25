@@ -29,12 +29,14 @@ class Description extends Component {
 
     return (
       <form className={styles.description} onSubmit={this.submitForm}>
-        <h2>{brand}</h2>
-        <h3>{name}</h3>
+        <h2 className={styles.brand}>{brand}</h2>
+        <h3 className={styles.name}>{name}</h3>
 
         {attributes.map((attribute) => (
           <div key={attribute.id}>
-            <h4>{attribute.name.toUpperCase()}</h4>
+            <h4 className={styles.attribute__name}>
+              {attribute.name.toUpperCase()}
+            </h4>
             <div className={styles.variants}>
               {/*  */}
 
@@ -76,15 +78,30 @@ class Description extends Component {
             </div>
           </div>
         ))}
-        <h4>PRICE:</h4>
+        <h4 className={styles.price}>PRICE:</h4>
         <div className={styles.prices}>
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
         </div>
 
-        <button disabled={!inStock}>ADD TO CART</button>
+        <button
+          className={styles.button_addToCart}
+          disabled={!inStock}
+          onClick={() =>
+            this.setState({
+              ...this.state,
+              id,
+              prices,
+            })
+          }
+        >
+          ADD TO CART
+        </button>
 
-        <article dangerouslySetInnerHTML={{ __html: description }}></article>
+        <article
+          className={styles.description__article}
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></article>
       </form>
     );
   }

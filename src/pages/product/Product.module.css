@@ -1,6 +1,8 @@
 .main__product {
   display: flex;
   justify-content: space-between;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 /* .select {

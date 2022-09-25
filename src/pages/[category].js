@@ -11,14 +11,14 @@ class Layout extends Component {
     if (loading) return null;
 
     return (
-      <div>
+      <main className={styles.category}>
         <h2>{category.name}</h2>
         <div className={styles.products}>
           {category.products.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
         </div>
-      </div>
+      </main>
     );
   }
 }

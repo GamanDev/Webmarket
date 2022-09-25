@@ -1,5 +1,5 @@
 .image {
-  width: 121px;
-  height: 190px;
+  max-width: 121px;
+  max-height: 190px;
   object-fit: contain;
 }

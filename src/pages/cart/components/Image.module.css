@@ -1,6 +1,33 @@
+.description__image {
+  position: relative;
+
+  margin-bottom: 24px;
+}
+
 .image {
   width: 200px;
   height: 288px;
   object-fit: contain;
-  margin: auto 0;
+}
+
+.image_buttons {
+  width: 56px;
+  height: 24px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 16px;
+  right: 18px;
+  user-select: none;
+}
+
+.vector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.73);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }

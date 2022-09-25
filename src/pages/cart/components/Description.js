@@ -24,16 +24,18 @@ class Description extends Component {
     const { currency } = this.props;
     return (
       <main className={styles.cart__description}>
-        <h4>{brand}</h4>
-        <h4>{name}</h4>
+        <div>
+          <h4 className={styles.brand}>{brand}</h4>
+          <h4 className={styles.name}>{name}</h4>
+        </div>
         <div className={styles.prices}>
           <div>{prices[currency].currency.symbol}</div>
           <div>{prices[currency].amount}</div>
         </div>
-        <div className={styles.variants}>
+        <div>
           {attributes.map((attribute) => (
             <div key={attribute.id}>
-              <h4>{attribute.name}</h4>
+              <h4 className={styles.variants}>{attribute.name}</h4>
               <div className={styles.variants_attribute}>
                 {attribute.items.map((item) => (
                   <label key={item.value} name={attribute.name}>
