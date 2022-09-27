@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Product from "./Product";
+
 import styles from "./Cart.module.css";
 
 export default class Cart extends Component {
@@ -9,7 +9,7 @@ export default class Cart extends Component {
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
-          <Product />
+          3301
         </div>
       </div>
     );

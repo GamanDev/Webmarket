@@ -1,0 +1,39 @@
+.attribute_name {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.options {
+  display: flex;
+}
+
+.color_box {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+}
+
+.options_value {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  margin-right: 8px;
+}
+
+.options_value:hover {
+  background-color: #555658;
+  color: #ffffff;
+}

@@ -1,0 +1,12 @@
+.brand,
+.name {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-weight: 400;
+  margin-top: 16px;
+}

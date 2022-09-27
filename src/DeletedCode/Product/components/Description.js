@@ -20,13 +20,12 @@ class Description extends Component {
     console.log("desc", prices);
     return (
       <main className={styles.description}>
-        <div>
-          <h4>{brand}</h4>
-          <h4>{name}</h4>
-        </div>
+        <h3>{brand}</h3>
+        <h4>{name}</h4>
+
         <div className={styles.prices}>
-          <div>{prices[currency].currency.symbol}</div>
-          <div>{prices[currency].amount}</div>
+          {prices[currency].currency.symbol}
+          {prices[currency].amount}
         </div>
         <div>
           {attributes.map((attribute) => (

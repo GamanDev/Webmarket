@@ -5,26 +5,27 @@ import Counter from "./components/Counter";
 import Description from "./components/Description";
 import Image from "./components/Image";
 import styles from "./Product.module.css";
+import Title from "../../components/Product/Title";
+import Price from "../../components/Product/Price";
 
-// Capacity:"256GB"
-// Touch ID in keyboard: "Yes"
-// With USB 3 ports:  "Yes"
-// count:  2
-// id : "apple-imac-2021"
-// key_unique : "Capacity-256GBid-apple-imac-2021With USB 3 ports-YesTouch ID in keyboard-Yes"
-
-class Item extends Component {
+export class Item extends Component {
   render() {
     if (this.props.data.loading) return null;
-    const { product } = this.props.data;
-    const { gallery } = this.props.data.product;
-    const { item } = this.props;
+
+    const { item, data } = this.props;
+    const { product } = data;
+    const { gallery, brand, name, price } = product;
+    console.log("time", product);
+
     return (
-      <main className={styles.product}>
-        <Description item={item} product={product} />
+      <div className={styles.product}>
+        <section>
+          <Title brand={brand} name={name} />
+          <Price price={price} />
+        </section>
         <Counter count={item.count} key_unique={item.key_unique} />
         <Image gallery={gallery} />
-      </main>
+      </div>
     );
   }
 }
@@ -64,7 +65,7 @@ export default graphql(
     options: (props) => ({
       fetchPolicy: "network-only",
       variables: {
-        id: props.id,
+        id: props.item.id,
       },
     }),
   }

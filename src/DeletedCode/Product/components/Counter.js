@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  addItemToCart,
-  removeItemFromCart,
-} from "../../../../../redux/Actions";
+import { addItemToCart, removeItemFromCart } from "../../../redux/actions";
 import styles from "./Counter.module.css";
 
 class Counter extends Component {

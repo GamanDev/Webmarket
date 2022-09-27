@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { currencyChanger } from "../../../redux/Actions";
+import { currencyChanger } from "../../../redux/actions";
 import styles from "./Currency.module.css";
 
 class Currency extends Component {

@@ -2,6 +2,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Expletus+Sans:ital@1&family=Graduate&family=Handlee&family=Oleo+Script:wght@400;700&family=Orbitron&family=Poppins:wght@200&family=Raleway&family=Roboto&family=Roboto+Condensed&family=Roboto+Mono&family=Source+Sans+Pro&family=Spline+Sans+Mono&family=Tapestry&family=Updock&family=Water+Brush&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Expletus+Sans:ital@1&family=Graduate&family=Handlee&family=Oleo+Script:wght@400;700&family=Orbitron&family=Poppins:wght@200&family=Raleway&family=Roboto&family=Roboto+Condensed&family=Roboto+Mono&family=Source+Sans+Pro&family=Spline+Sans+Mono&family=Tapestry&family=Updock&family=Water+Brush&display=swap");
 
+.description {
+  display: flex;
+  flex-direction: column;
+  max-width: 292px;
+  margin-right: 100px;
+}
+
+.variants {
+  display: flex;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 27px;
+  margin-bottom: 16px;
+  font-family: "Raleway";
+}
+
+.name {
+  font-family: "Raleway";
+  margin-top: 16px;
+  margin-bottom: 43px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 27px;
+}
+.attribute__name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 8px;
+  font-family: "Roboto Condensed";
+}
+
 .price {
   margin-top: 36px;
   margin-bottom: 10px;
@@ -11,12 +46,42 @@
   font-family: "Roboto Condensed";
 }
 
-.price {
-  font-family: "Roboto Condensed";
-  font-style: normal;
+.prices {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 18px;
+  width: 86px;
+  height: 46px;
+  font-family: "Raleway";
+}
+
+.select {
+  font-family: "Source Sans Pro";
+  margin-top: 8px;
+  display: flex;
+  width: 63px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1d1f22;
+  user-select: none;
+  margin-right: 12px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  box-sizing: border-box;
+}
+
+.check_color {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  margin-right: 8px;
 }
 
 .button_addToCart {
@@ -28,9 +93,7 @@
   line-height: 120%;
   background: #5ece7b;
   color: #ffffff;
-  margin-top: 20px;
 }
-
 .description__article {
   width: 292px;
   margin-top: 40px;
@@ -38,4 +101,26 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 159.96%;
+}
+.select:hover {
+  background-color: rgba(0, 0, 0, 0.158);
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"]:checked + .select {
+  background-color: #1d1f22;
+}
+
+input[type="radio"]:checked + .select {
+  color: #ffffff;
+}
+
+input[name="Color"] {
+  display: none;
+}
+input[name="Color"]:checked + .check_color {
+  outline: 2px solid #5ece7b;
+  border: 2px solid rgb(255, 255, 255);
 }

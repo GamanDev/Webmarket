@@ -32,7 +32,9 @@ class NavCart extends Component {
             </span>
           )}
         </div>
-        {this.state.isCartOpen && <Cart toggleCart={this.toggleCart} />}
+        {this.state.isCartOpen && (
+          <Cart toggleCart={this.toggleCart} ItemsInCart={ItemsInCart} />
+        )}
       </main>
     );
   }

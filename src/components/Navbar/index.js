@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
-import NavCart from "./NavCart/NavCart";
+import NavCart from "./NavCart";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import styles from "./Nav.module.css";
 
@@ -12,21 +12,21 @@ class Nav extends Component {
 
     const { categories } = this.props.data;
     return (
-      <div className={styles.nav}>
-        <div className={styles.nav__links}>
+      <nav className={styles.nav}>
+        <section className={styles.nav__links}>
           {categories.map((category) => (
             <Link key={category.name} to={`/${category.name}`}>
               {category.name.toUpperCase()}
             </Link>
           ))}
           <Link to="/cart">Cart</Link>
-        </div>
-        <div>Green Logo</div>
-        <div className={styles.nav__curr_n_cart}>
+        </section>
+        <section>Green Logo</section>
+        <section className={styles.nav__curr_n_cart}>
           <CurrencySelector />
           <NavCart />
-        </div>
-      </div>
+        </section>
+      </nav>
     );
   }
 }
