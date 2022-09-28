@@ -3,7 +3,7 @@ import styles from "./Attribute.module.css";
 
 export default class Attribute extends Component {
   render() {
-    const { attributes } = this.props;
+    const { attributes, setAttributes } = this.props;
     return (
       <div>
         {attributes.map((attribute) => (
@@ -19,7 +19,7 @@ export default class Attribute extends Component {
                         background: `${item.value}`,
                       }}
                       className={styles.color_box}
-                      onClick={() => console.log(attribute.name, item.value)}
+                      onClick={() => setAttributes(attribute.name, item.value)}
                     ></div>
                   ))}
                 </div>
@@ -31,7 +31,7 @@ export default class Attribute extends Component {
                   {attribute.items.map((item) => (
                     <div
                       key={item.id}
-                      onClick={() => console.log(attribute.name, item.value)}
+                      onClick={() => setAttributes(attribute.name, item.value)}
                       className={styles.options_value}
                     >
                       {item.value}
