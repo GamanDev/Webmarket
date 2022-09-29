@@ -20,7 +20,7 @@ class NavCart extends Component {
   };
 
   render() {
-    const { ItemsInCart } = this.props;
+    const { ItemsInCart, currencyIndex } = this.props;
 
     return (
       <main>
@@ -28,12 +28,16 @@ class NavCart extends Component {
           Cart
           {ItemsInCart.length > 0 && (
             <span className={styles.items__count}>
-              {ItemsInCart.reduce((acc, val) => acc + val.count, 0)}
+              {ItemsInCart.reduce((acc, val) => acc + val.amount, 0)}
             </span>
           )}
         </div>
         {this.state.isCartOpen && (
-          <Cart toggleCart={this.toggleCart} ItemsInCart={ItemsInCart} />
+          <Cart
+            toggleCart={this.toggleCart}
+            ItemsInCart={ItemsInCart}
+            currencyIndex={currencyIndex}
+          />
         )}
       </main>
     );
@@ -43,6 +47,7 @@ class NavCart extends Component {
 function mapStateToProps(state) {
   return {
     ItemsInCart: state.cart.ItemsInCart,
+    currencyIndex: state.currency.currencyIndex,
   };
 }
 

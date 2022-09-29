@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import cx from "classnames";
 import styles from "./Price.module.css";
 
 class Price extends Component {
   render() {
-    const { prices, currency } = this.props;
+    const { prices, currency, stl } = this.props;
+
+    const priceCSS = `prices_${stl}`;
+
     return (
       <div className={styles.prices}>
-        <div>{prices[currency].currency.symbol}</div>
-        <div>{prices[currency].amount}</div>
+        <div className={cx(stl ? styles[priceCSS] : styles.prices)}>
+          {prices[currency].currency.symbol}
+        </div>
+        <div className={cx(stl ? styles[priceCSS] : styles.prices)}>
+          {prices[currency].amount}
+        </div>
       </div>
     );
   }

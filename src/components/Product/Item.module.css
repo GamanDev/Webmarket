@@ -1,0 +1,18 @@
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-left: 16px;
+  margin-bottom: 40px;
+}
+.count_image {
+  display: flex;
+}
+
+.cart_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 136px;
+  margin-right: 4px;
+}

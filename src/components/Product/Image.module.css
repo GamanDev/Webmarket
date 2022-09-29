@@ -1,0 +1,7 @@
+.image_mini {
+  max-width: 121px;
+  max-height: 190px;
+  object-fit: cover;
+  margin: auto;
+  box-sizing: border-box;
+}

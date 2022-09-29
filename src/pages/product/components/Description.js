@@ -10,17 +10,13 @@ class Description extends Component {
   submitForm = (product) => {
     console.log("state,", this.state);
     let key_unique = product.id;
-    const Itemobj = {};
+    const Itemobj = { item: product, amount: 1, options: [this.state] };
 
     for (const item in this.state) {
       key_unique += `${item}-${this.state[item]}`;
     }
-
-    Itemobj[key_unique] = {
-      item: product,
-      amount: 1,
-    };
-    console.log(Itemobj);
+    Itemobj["key_unique"] = key_unique;
+    this.props.addItem(Itemobj);
   };
 
   setAttributes = (key, value) => {
@@ -38,7 +34,7 @@ class Description extends Component {
 
     return (
       <div className={styles.description}>
-        <Title brand={brand} name={name} />
+        <Title brand={brand} name={name} stl={"main"} />
         <Attribute attributes={attributes} setAttributes={this.setAttributes} />
         <section>
           <h4 className={styles.price}>PRICE:</h4>

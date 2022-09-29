@@ -1,7 +1,7 @@
 const initialState = {
   ItemsInCart: [],
 };
-//  {key: unique_key, count: 1, [attribute] : attribute.value}
+//  {key: unique_key, amount: 1, [attribute] : attribute.value}
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
@@ -18,7 +18,7 @@ const cartReducer = (state = initialState, action) => {
           state.ItemsInCart.findIndex(
             (el) => el.key_unique === action.payload.key_unique
           )
-        ].count++;
+        ].amount++;
         return { ItemsInCart: [...state.ItemsInCart] };
       } else {
         return {
@@ -30,8 +30,8 @@ const cartReducer = (state = initialState, action) => {
         state.ItemsInCart.findIndex(
           (el) => el.key_unique === action.payload.key_unique
         )
-      ].count--;
-      return { ItemsInCart: state.ItemsInCart.filter((el) => el.count > 0) };
+      ].amount--;
+      return { ItemsInCart: state.ItemsInCart.filter((el) => el.amount > 0) };
     default:
       return state;
   }
@@ -44,7 +44,7 @@ export default cartReducer;
 //  ) {
 //    state.ItemsInCart[
 //      state.ItemsInCart.findIndex((el) => el.name === action.payload.name)
-//    ].count++;
+//    ].amount++;
 //    state.updated += 1;
 //    return { ...state };
 //  }

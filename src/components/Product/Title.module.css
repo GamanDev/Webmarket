@@ -10,3 +10,12 @@
   font-weight: 400;
   margin-top: 16px;
 }
+
+.brand_mini,
+.name_mini {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+}

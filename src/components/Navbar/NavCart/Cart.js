@@ -1,15 +1,27 @@
 import React, { Component } from "react";
+import Item from "../../Product";
 
 import styles from "./Cart.module.css";
 
 export default class Cart extends Component {
   render() {
-    const { toggleCart } = this.props;
+    const { toggleCart, ItemsInCart, currencyIndex } = this.props;
 
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
-          3301
+          <h2>
+            Items in Cart:{" "}
+            {ItemsInCart.reduce((acc, val) => acc + val.amount, 0)}
+          </h2>
+          {ItemsInCart.map((product) => (
+            <Item
+              key={product.key_unique}
+              item={product.item}
+              currencyIndex={currencyIndex}
+              options={product.options}
+            />
+          ))}
         </div>
       </div>
     );
