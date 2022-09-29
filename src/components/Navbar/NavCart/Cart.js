@@ -6,7 +6,7 @@ import styles from "./Cart.module.css";
 export default class Cart extends Component {
   render() {
     const { toggleCart, ItemsInCart, currencyIndex } = this.props;
-
+    console.log("it", ItemsInCart);
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
@@ -20,6 +20,8 @@ export default class Cart extends Component {
               item={product.item}
               currencyIndex={currencyIndex}
               options={product.options}
+              amount={product.amount}
+              key_unique={product.key_unique}
             />
           ))}
         </div>

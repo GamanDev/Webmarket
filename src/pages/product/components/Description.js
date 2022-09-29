@@ -34,7 +34,7 @@ class Description extends Component {
 
     return (
       <div className={styles.description}>
-        <Title brand={brand} name={name} stl={"main"} />
+        <Title brand={brand} name={name} />
         <Attribute attributes={attributes} setAttributes={this.setAttributes} />
         <section>
           <h4 className={styles.price}>PRICE:</h4>

@@ -10,8 +10,7 @@ export default class Attribute extends Component {
     const attribute_optionsCSS = `attribute_options_${stl}`;
     const options_valueCSS = `options_value_${stl}`;
     const color_boxCSS = `color_box_${stl}`;
-
-    // className={cx(stl ? styles[priceCSS] : styles.prices)}
+    console.log(options);
     return (
       <div>
         {attributes.map((attribute) => (

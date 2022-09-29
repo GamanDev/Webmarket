@@ -8,8 +8,10 @@ import styles from "./Item.module.css";
 
 export default class Item extends Component {
   render() {
-    const { currencyIndex, options } = this.props;
+    const { currencyIndex, options, amount, key_unique } = this.props;
     const { brand, name, gallery, prices, attributes } = this.props.item;
+
+    if (!this.props.item) return null;
 
     return (
       <div className={styles.cart_item}>
@@ -19,7 +21,7 @@ export default class Item extends Component {
           <Attribute attributes={attributes} options={options} stl={"mini"} />
         </section>
         <section className={styles.count_image}>
-          <Counter />
+          <Counter amount={amount} key_unique={key_unique} />
           <Image gallery={gallery} />
         </section>
       </div>

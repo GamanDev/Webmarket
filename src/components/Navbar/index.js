@@ -5,7 +5,6 @@ import { gql } from "@apollo/client";
 import NavCart from "./NavCart";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import styles from "./Nav.module.css";
-import { connect } from "react-redux";
 
 class Nav extends Component {
   render() {
@@ -23,9 +22,6 @@ class Nav extends Component {
           <Link to="/cart">Cart</Link>
         </section>
         <section>Green Logo</section>
-        <button onClick={() => console.log(this.props.ItemsInCart)}>
-          state
-        </button>
         <section className={styles.nav__curr_n_cart}>
           <CurrencySelector />
           <NavCart />
@@ -35,20 +31,12 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    ItemsInCart: state.cart.ItemsInCart,
-  };
-};
-
-export default connect(mapStateToProps)(
-  graphql(
-    gql`
-      query {
-        categories {
-          name
-        }
+export default graphql(
+  gql`
+    query {
+      categories {
+        name
       }
-    `
-  )(Nav)
-);
+    }
+  `
+)(Nav);
