@@ -99,7 +99,6 @@ class Description extends Component {
           //     prices,
           //   })
           // }
-          onClick={() => console.log(product)}
         >
           ADD TO CART
         </button>

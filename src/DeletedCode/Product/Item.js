@@ -15,7 +15,6 @@ export class Item extends Component {
     const { item, data } = this.props;
     const { product } = data;
     const { gallery, brand, name, price } = product;
-    console.log("time", product);
 
     return (
       <div className={styles.product}>

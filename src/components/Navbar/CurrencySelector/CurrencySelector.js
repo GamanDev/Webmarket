@@ -13,6 +13,7 @@ class CurrencySelector extends Component {
   }
 
   toogleCurrency = (e) => {
+    e.stopPropagation();
     this.setState({
       ...this.state,
       isCurrSelectOpen: !this.state.isCurrSelectOpen,
@@ -20,6 +21,10 @@ class CurrencySelector extends Component {
   };
 
   render() {
+    if (this.state.isCurrSelectOpen)
+      document.addEventListener("click", () =>
+        this.setState({ isCurrSelectOpen: false })
+      );
     if (this.props.data.loading) return null;
 
     const { prices } = this.props.data.categories[0].products[0];

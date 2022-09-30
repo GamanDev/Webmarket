@@ -7,7 +7,7 @@ import styles from "./Category.module.css";
 class Layout extends Component {
   render() {
     const { loading, category } = this.props.data;
-    console.log("category", this.props.match.params.category);
+
     if (loading) return null;
 
     return (

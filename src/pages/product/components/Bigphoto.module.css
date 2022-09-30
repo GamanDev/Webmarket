@@ -3,3 +3,21 @@
   height: 600px;
   object-fit: contain;
 }
+
+.big_photo_outOfStock {
+  opacity: 0.5;
+  position: relative;
+}
+
+.no_text {
+  position: absolute;
+  left: 38.42%;
+  top: 32.24%;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 160%;
+  align-items: center;
+
+  color: #555764;
+}

@@ -29,7 +29,6 @@ class Product extends Component {
   render() {
     const { loading, product } = this.props.data;
     if (loading) return null;
-
     return (
       <main className={styles.main__product}>
         <PhotoCarousel
@@ -39,6 +38,7 @@ class Product extends Component {
         <BigPhoto
           gallery={product.gallery}
           photoIndex={this.state.photoIndex}
+          inStock={product.inStock}
         />
         <Description product={product} />
       </main>

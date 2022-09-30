@@ -19,7 +19,8 @@
   line-height: 18px;
 }
 
-.button_addToCart {
+.button_addToCart,
+.button_addToCart_disabled {
   border: none;
   width: 292px;
   height: 52px;
@@ -38,4 +39,8 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 159.96%;
+}
+
+.button_addToCart_disabled {
+  background: rgba(141, 143, 154, 1);
 }

@@ -17,7 +17,6 @@ class Description extends Component {
   render() {
     const { brand, name, prices, attributes } = this.props.product;
     const { currency } = this.props;
-    console.log("desc", prices);
     return (
       <main className={styles.description}>
         <h3>{brand}</h3>

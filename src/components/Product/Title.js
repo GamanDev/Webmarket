@@ -11,8 +11,8 @@ export default class Title extends Component {
 
     return (
       <>
-        <div className={cx(stl ? styles[brandCSS] : styles.brand)}>{brand}</div>
-        <div className={cx(stl ? styles[nameCSS] : styles.name)}>{name}</div>
+        <div className={cx(styles.brand, stl && styles[brandCSS])}>{brand}</div>
+        <div className={cx(styles.name, stl && styles[nameCSS])}>{name}</div>
       </>
     );
   }

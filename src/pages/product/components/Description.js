@@ -7,10 +7,13 @@ import { addItemToCart } from "../../../redux/actions";
 import styles from "./Description.module.css";
 
 class Description extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   submitForm = (product) => {
-    console.log("state,", this.state);
     let key_unique = product.id;
-    const Itemobj = { item: product, amount: 1, options: [this.state] };
+    const Itemobj = { item: product, amount: 1, options: this.state };
 
     for (const item in this.state) {
       key_unique += `${item}-${this.state[item]}`;
@@ -42,9 +45,16 @@ class Description extends Component {
         </section>
 
         <button
-          className={styles.button_addToCart}
+          className={
+            (styles.button_addToCart,
+            !inStock && styles.button_addToCart_disabled)
+          }
           disabled={!inStock}
-          onClick={() => this.submitForm(product)}
+          onClick={() =>
+            this.state &&
+            Object.keys(this.state).length === product.attributes.length &&
+            this.submitForm(product)
+          }
         >
           ADD TO CART
         </button>

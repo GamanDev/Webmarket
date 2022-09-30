@@ -1,18 +1,29 @@
-.cart_item {
+.cart_item_mini,
+.cart_item_cart {
   display: flex;
   justify-content: space-between;
   margin-right: 16px;
   margin-left: 16px;
   margin-bottom: 40px;
 }
+.cart_item_cart {
+  margin-right: 100px;
+  margin-left: 100px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
 .count_image {
   display: flex;
 }
 
-.cart_description {
+.cart_description_mini,
+.cart_description_cart {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 136px;
   margin-right: 4px;
+}
+.cart_description_mini {
+  width: 136px;
 }
