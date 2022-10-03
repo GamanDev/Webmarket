@@ -5,8 +5,17 @@ import { gql } from "@apollo/client";
 import NavCart from "./NavCart";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import styles from "./Nav.module.css";
+import { connect } from "react-redux";
+import { currencyChanger } from "../../redux/actions";
 
 class Nav extends Component {
+  componentDidMount() {
+    if (typeof Storage === "undefined") {
+      return;
+    } else {
+      this.props.currencySelector(window.localStorage.getItem("currencyIndex"));
+    }
+  }
   render() {
     if (this.props.data.loading) return null;
 
@@ -31,12 +40,23 @@ class Nav extends Component {
   }
 }
 
-export default graphql(
-  gql`
-    query {
-      categories {
-        name
+function mapDispatchToProps(dispatch) {
+  return {
+    currencySelector: (id) => dispatch(currencyChanger(id)),
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(
+  graphql(
+    gql`
+      query {
+        categories {
+          name
+        }
       }
-    }
-  `
-)(Nav);
+    `
+  )(Nav)
+);

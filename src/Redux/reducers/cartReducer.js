@@ -36,7 +36,7 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-
+console.log(123);
 export default cartReducer;
 
 //  if (

@@ -4,6 +4,7 @@ import Attribute from "../../../components/Product/Attribute";
 import Price from "../../../components/Product/Price";
 import Title from "../../../components/Product/Title";
 import { addItemToCart } from "../../../redux/actions";
+import cx from "classnames";
 import styles from "./Description.module.css";
 
 class Description extends Component {
@@ -45,10 +46,10 @@ class Description extends Component {
         </section>
 
         <button
-          className={
-            (styles.button_addToCart,
-            !inStock && styles.button_addToCart_disabled)
-          }
+          className={cx(
+            styles.button_addToCart,
+            !inStock && styles.button_addToCart_disabled
+          )}
           disabled={!inStock}
           onClick={() =>
             this.state &&

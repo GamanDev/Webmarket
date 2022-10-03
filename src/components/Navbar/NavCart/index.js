@@ -18,9 +18,9 @@ class NavCart extends Component {
       isCartOpen: !this.state.isCartOpen,
     });
   };
-
   render() {
     const { ItemsInCart, currencyIndex } = this.props;
+    console.log("a", JSON.stringify(ItemsInCart));
 
     return (
       <main>
