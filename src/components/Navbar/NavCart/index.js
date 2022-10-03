@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addLocalStorage } from "../../../redux/actions";
 import Cart from "./Cart";
 import styles from "./Navcart.module.css";
 
@@ -20,8 +21,7 @@ class NavCart extends Component {
   };
   render() {
     const { ItemsInCart, currencyIndex } = this.props;
-    console.log("a", JSON.stringify(ItemsInCart));
-
+    window.localStorage.setItem("cartStore", JSON.stringify(ItemsInCart));
     return (
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>

@@ -5,7 +5,7 @@ import styles from "./Bigphoto.module.css";
 export default class BigPhoto extends Component {
   render() {
     const { gallery, photoIndex, inStock } = this.props;
-    console.log(inStock);
+
     return (
       <>
         <img

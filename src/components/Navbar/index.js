@@ -6,18 +6,22 @@ import NavCart from "./NavCart";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import styles from "./Nav.module.css";
 import { connect } from "react-redux";
-import { currencyChanger } from "../../redux/actions";
+import { addLocalStorage, currencyChanger } from "../../redux/actions";
 
 class Nav extends Component {
   componentDidMount() {
-    if (typeof Storage === "undefined") {
-      return;
-    } else {
+    if (typeof Storage !== "undefined") {
       this.props.currencySelector(window.localStorage.getItem("currencyIndex"));
+      this.props.addLocalStorage(
+        JSON.parse(window.localStorage.getItem("cartStore"))
+      );
+    } else {
+      this.props.currencySelector(0);
     }
   }
   render() {
     if (this.props.data.loading) return null;
+    // com
 
     const { categories } = this.props.data;
     return (
@@ -43,6 +47,7 @@ class Nav extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     currencySelector: (id) => dispatch(currencyChanger(id)),
+    addLocalStorage: (prodcts) => dispatch(addLocalStorage(prodcts)),
   };
 }
 

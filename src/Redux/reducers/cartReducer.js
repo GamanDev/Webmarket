@@ -5,6 +5,7 @@ const initialState = {
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const LOCAL_STORE = "LOCAL_STORE";
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -31,25 +32,13 @@ const cartReducer = (state = initialState, action) => {
           (el) => el.key_unique === action.payload.key_unique
         )
       ].amount--;
+
       return { ItemsInCart: state.ItemsInCart.filter((el) => el.amount > 0) };
+    case LOCAL_STORE:
+      return { ItemsInCart: action.payload };
     default:
       return state;
   }
 };
-console.log(123);
-export default cartReducer;
 
-//  if (
-//    state.ItemsInCart.findIndex((el) => el.name === action.payload.name) >= 0
-//  ) {
-//    state.ItemsInCart[
-//      state.ItemsInCart.findIndex((el) => el.name === action.payload.name)
-//    ].amount++;
-//    state.updated += 1;
-//    return { ...state };
-//  }
-//  return {
-//    ...state,
-//    ItemsInCart: [...state.ItemsInCart, action.payload],
-//    updated: state.updated + 1,
-//  };
+export default cartReducer;

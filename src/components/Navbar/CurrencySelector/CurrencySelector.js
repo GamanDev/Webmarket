@@ -30,7 +30,7 @@ class CurrencySelector extends Component {
     const { prices } = this.props.data.categories[0].products[0];
 
     const { currency } = this.props;
-    console.log("price", currency, prices);
+
     return (
       <>
         <div onClick={this.toogleCurrency}>
