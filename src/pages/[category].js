@@ -29,10 +29,14 @@ export default graphql(
       category(input: { title: $category }) {
         name
         products {
+          brand
           name
           gallery
           inStock
           id
+          attributes {
+            id
+          }
           prices {
             amount
             currency {

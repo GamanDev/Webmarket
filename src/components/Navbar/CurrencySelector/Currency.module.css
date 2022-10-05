@@ -12,6 +12,8 @@
   box-shadow: 0px 4px 10px rgba(155, 173, 185, 0.336);
   filter: drop-shadow(0px 4px 10px rgba(155, 173, 185, 0.336));
   user-select: none;
+  z-index: 101;
+  cursor: pointer;
 }
 
 .currency__blocks {

@@ -1,5 +1,7 @@
 .cart {
   position: relative;
+  width: 30px;
+  height: 20px;
 }
 
 .items__count {
@@ -12,4 +14,21 @@
   height: 20px;
   text-align: center;
   border-radius: 50%;
+}
+
+.cart_comp {
+  position: absolute;
+  left: 3px;
+  cursor: pointer;
+}
+
+.wheel_1 {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+}
+.wheel_2 {
+  position: absolute;
+  bottom: 0;
+  right: -1px;
 }

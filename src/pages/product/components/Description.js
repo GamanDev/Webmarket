@@ -20,6 +20,7 @@ class Description extends Component {
       key_unique += `${item}-${this.state[item]}`;
     }
     Itemobj["key_unique"] = key_unique;
+    console.log(Itemobj);
     this.props.addItem(Itemobj);
   };
 

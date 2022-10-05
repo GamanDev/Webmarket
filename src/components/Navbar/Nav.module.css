@@ -5,6 +5,7 @@ a {
 
 .nav {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   height: 80px;
@@ -27,5 +28,42 @@ a {
 .nav__curr_n_cart {
   display: flex;
   justify-content: space-between;
-  width: 50px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.green_logo {
+  position: relative;
+  width: 33px;
+  height: 30px;
+
+  z-index: 0;
+}
+.round_line {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+}
+.round_arrow {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+}
+
+.active {
+  color: #5ece7b;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+
+  left: 0px;
+  bottom: -30px;
+  width: 100%;
+  height: 3px;
+
+  background: #5ece7b;
+  z-index: -1;
 }

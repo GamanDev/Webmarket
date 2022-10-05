@@ -2,13 +2,9 @@
 .cart_item_cart {
   display: flex;
   justify-content: space-between;
-  margin-right: 16px;
-  margin-left: 16px;
   margin-bottom: 40px;
 }
 .cart_item_cart {
-  margin-right: 100px;
-  margin-left: 100px;
   padding-bottom: 32px;
   border-bottom: 1px solid #e5e5e5;
 }

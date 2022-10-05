@@ -14,7 +14,7 @@ export default class Attribute extends Component {
       return "";
     });
 
-    e.target.classList.toggle(styles[styleName]);
+    e.target.classList.add(styles[styleName]);
   };
 
   render() {

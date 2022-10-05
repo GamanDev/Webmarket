@@ -1,13 +1,16 @@
 .card {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
-  padding-left: 30px;
 
-  width: 386px;
+  max-width: 386px;
   height: 444px;
   box-sizing: border-box;
   flex-basis: 413px;
+  padding-left: 16px;
+  padding-right: 14px;
+  padding-top: 11px;
 }
 
 .card_outOfStock {
@@ -32,16 +35,69 @@
 
 .card__image {
   display: flex;
+  position: relative;
   object-fit: contain;
   min-width: 356px;
   max-width: 356px;
   max-height: 338px;
   min-height: 338px;
+  margin-bottom: 21px;
 }
+.name_price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+}
+
 .price {
   display: flex;
+  font-weight: 700;
+}
+
+.fast_cart {
+  display: none;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background: #5ece7b;
+  bottom: 124px;
+  left: 303px;
+  border: none;
+}
+.white_cart {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+}
+.white_wheel1,
+.white_wheel2 {
+  position: absolute;
+  left: 18px;
+  bottom: 15px;
+}
+.white_wheel2 {
+  left: 32px;
+}
+
+.card:hover + .fast_cart {
+  display: block;
+}
+
+.fast_cart:hover {
+  display: block;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.fast_cart:active {
+  scale: 0.95;
 }
 
 .card:hover {
-  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.719);
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.637);
 }

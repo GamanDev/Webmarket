@@ -17,6 +17,7 @@
 .options,
 .attribute_options_mini {
   display: flex;
+  cursor: pointer;
 }
 
 .color_box {

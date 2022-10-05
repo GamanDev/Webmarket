@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
 import Currency from "./Currency";
-import { connect } from "react-redux";
 
 class CurrencySelector extends Component {
   constructor(props) {
@@ -25,16 +25,35 @@ class CurrencySelector extends Component {
       document.addEventListener("click", () =>
         this.setState({ isCurrSelectOpen: false })
       );
+
     if (this.props.data.loading) return null;
 
-    const { prices } = this.props.data.categories[0].products[0];
-
-    const { currency } = this.props;
+    const { currency, data } = this.props;
+    const { prices } = data.categories[0].products[0];
 
     return (
       <>
-        <div onClick={this.toogleCurrency}>
-          {prices[currency].currency.symbol}
+        <div
+          onClick={this.toogleCurrency}
+          style={{
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          <strong>{prices[currency].currency.symbol}</strong>
+          {this.state.isCurrSelectOpen ? (
+            <img
+              src="assets/img/price_vector_up.png"
+              alt="V"
+              style={{ width: "11px", marginLeft: "3px" }}
+            />
+          ) : (
+            <img
+              src="assets/img/price_vector_down.png"
+              alt="V"
+              style={{ width: "11px", marginLeft: "3px" }}
+            />
+          )}
         </div>
         {this.state.isCurrSelectOpen && (
           <Currency prices={prices} toogleCurrency={this.toogleCurrency} />

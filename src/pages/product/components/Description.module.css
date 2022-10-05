@@ -30,6 +30,7 @@
   background: #5ece7b;
   color: #ffffff;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .description__article {
@@ -43,4 +44,12 @@
 
 .button_addToCart_disabled {
   background: rgba(141, 143, 154, 1);
+  cursor: not-allowed;
+}
+
+.button_addToCart:active {
+  scale: 0.95;
+}
+.button_addToCart_disabled:active {
+  scale: 1;
 }
