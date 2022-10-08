@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItemToCart } from "../../redux/actions";
-import styles from "./Card.module.css";
+import styles from "./index.module.css";
 
 class FastCart extends Component {
   addFastCart = (product) => {
@@ -11,7 +11,7 @@ class FastCart extends Component {
 
   render() {
     const { item } = this.props;
-    console.log("fast", this.props);
+
     return (
       <button
         className={styles.fast_cart}

@@ -12,7 +12,7 @@ a {
   margin: 0 100px;
 }
 
-.nav__links {
+.links {
   width: 200px;
   height: 56px;
 
@@ -25,14 +25,14 @@ a {
   line-height: 120%;
 }
 
-.nav__curr_n_cart {
+.currency_n_cart {
   display: flex;
   justify-content: space-between;
   width: 70px;
   cursor: pointer;
 }
 
-.green_logo {
+.logo {
   position: relative;
   width: 33px;
   height: 30px;

@@ -1,0 +1,107 @@
+.attribute_name {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.attribute_name_mini {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.options,
+.attribute_options_mini {
+  display: flex;
+  cursor: pointer;
+}
+
+.color_box {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+}
+
+.color_box_mini,
+.active_color_mini {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+}
+
+.options_value {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.options_value_mini,
+.active_mini {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 160%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #1d1f22;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.active {
+  background-color: #1d1f22;
+  color: white;
+}
+
+.active_mini,
+.active_cart {
+  background-color: #1d1f22;
+  color: white;
+}
+
+.active_color,
+.active_color_cart {
+  outline: 2px solid #5ece7b;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.active_color_mini {
+  outline: 2px solid #5ece7b;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.options_value:hover {
+  background-color: #555658;
+  color: #ffffff;
+}
+.options_value_cart:hover {
+  background: none;
+  color: black;
+}
+
+.active_cart:hover {
+  background-color: #1d1f22;
+  color: white;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { currencyChanger } from "../../../redux/actions";
-import styles from "./Currency.module.css";
+import styles from "./index.module.css";
 
 class Currency extends Component {
   render() {
@@ -14,13 +14,11 @@ class Currency extends Component {
         {prices.map((curr, i) => (
           <div
             key={curr.currency.symbol}
-            className={styles.currency__blocks}
+            className={styles.currencies}
             onClick={() => currencySelector(i)}
           >
-            <div className={styles.currenncy__symbol}>
-              {curr.currency.symbol}
-            </div>
-            <div className={styles.currenncy__label}>{curr.currency.label}</div>
+            <div className={styles.symbol}>{curr.currency.symbol}</div>
+            <div className={styles.label}>{curr.currency.label}</div>
           </div>
         ))}
       </div>

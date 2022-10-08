@@ -8,7 +8,6 @@
   height: 100vh;
   scroll-behavior: unset;
   background-color: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
 }
 
 .cart {
@@ -38,16 +37,6 @@
 }
 .count_items {
   font-weight: 300;
-}
-
-.total {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
 }
 
 .btn_container {

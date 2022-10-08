@@ -7,9 +7,10 @@ export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const LOCAL_STORE = "LOCAL_STORE";
 
-const cartReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
+      // make function, review function
       if (
         state.ItemsInCart.findIndex(
           (el) => el.key_unique === action.payload.key_unique
@@ -40,5 +41,3 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default cartReducer;

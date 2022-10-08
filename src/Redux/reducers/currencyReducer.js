@@ -4,7 +4,7 @@ const initialState = {
 
 export const CHANGE_CURRENCY = "CHANGE_CURRENCY";
 
-const currencyReducer = (state = initialState, action) => {
+export const currencyReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_CURRENCY:
       return { currencyIndex: action.payload };
@@ -12,5 +12,3 @@ const currencyReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default currencyReducer;

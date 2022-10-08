@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import styles from "./Card.module.css";
+import styles from "./index.module.css";
 import FastCart from "./FastCart";
 
 class ProductCard extends Component {
   render() {
-    const { name, gallery, prices, inStock, id, currency, brand, attributes } =
-      this.props;
-    console.log(attributes);
+    const { currency, product } = this.props;
+    const { name, gallery, prices, inStock, id, brand, attributes } = product;
+
+    console.log("product", this.props);
     return (
       <span>
         <Link

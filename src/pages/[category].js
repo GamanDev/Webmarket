@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
-import ProductCard from "../components/ProductCard/ProductCard";
-import styles from "./Category.module.css";
+import ProductCard from "../components/ProductCard";
+import styles from "./[category].module.css";
 
 class Layout extends Component {
   render() {
@@ -15,7 +15,7 @@ class Layout extends Component {
         <h2>{category.name}</h2>
         <div className={styles.products}>
           {category.products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </main>

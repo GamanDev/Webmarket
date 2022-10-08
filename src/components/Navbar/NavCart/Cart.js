@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import Item from "../../Product";
-import cx from "classnames";
-import styles from "./Cart.module.css";
 import { Link } from "react-router-dom";
+import cx from "classnames";
+import Item from "../../Product";
+import Total from "../../Product/Total";
+import styles from "./Cart.module.css";
 
 export default class Cart extends Component {
   render() {
     const { toggleCart, ItemsInCart, currencyIndex } = this.props;
 
     return (
-      <div className={styles.modal} onClick={toggleCart} scroll="no">
+      <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
           <h2 className={styles.mybag}>
             <strong>My Bag,</strong>{" "}
@@ -21,30 +22,13 @@ export default class Cart extends Component {
           {ItemsInCart.map((product) => (
             <Item
               key={product.key_unique}
-              item={product.item}
+              product={product}
               currencyIndex={currencyIndex}
-              options={product.options}
-              amount={product.amount}
-              key_unique={product.key_unique}
               className={"mini"}
             />
           ))}
           {ItemsInCart.length > 0 && (
-            <div className={styles.total}>
-              <h4 style={{ fontFamily: "Roboto" }}>Total</h4>
-              <div style={{ fontWeight: "700" }}>
-                <span>
-                  {ItemsInCart[0].item.prices[currencyIndex].currency.symbol}
-                </span>
-                <span>
-                  {ItemsInCart.reduce(
-                    (acc, val) =>
-                      acc + val.item.prices[currencyIndex].amount * val.amount,
-                    0
-                  ).toFixed(2)}
-                </span>
-              </div>
-            </div>
+            <Total ItemsInCart={ItemsInCart} currencyIndex={currencyIndex} />
           )}
 
           {ItemsInCart.length > 0 && (

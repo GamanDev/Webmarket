@@ -16,23 +16,31 @@
   cursor: pointer;
 }
 
-.currency__blocks {
+.currencies {
   display: flex;
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
 }
 
-.currenncy__symbol {
+.symbol {
   margin-right: auto;
   margin-left: 10px;
   margin-bottom: 5px;
 }
-.currenncy__label {
+.label {
   margin-right: 10px;
 }
+.onCurrencyClick {
+  width: 100%;
+  text-align: center;
+}
+.toogleArrow {
+  width: 11px;
+  margin-left: 3px;
+}
 
-.currency__blocks:hover {
-  background: #7e7e7e65;
+.currencies:hover {
+  background: #46464665;
   cursor: pointer;
 }

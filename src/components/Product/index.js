@@ -8,11 +8,11 @@ import styles from "./Item.module.css";
 
 export default class Item extends Component {
   render() {
-    const { currencyIndex, options, amount, key_unique, className } =
-      this.props;
-    const { brand, name, gallery, prices, attributes } = this.props.item;
+    const { currencyIndex, className, product } = this.props;
+    const { options, amount, key_unique, item } = product;
+    const { brand, name, gallery, prices, attributes } = item;
 
-    if (!this.props.item) return null;
+    if (!item) return null;
 
     const cart_description = `cart_description_${className}`;
     const cart_item = `cart_item_${className}`;

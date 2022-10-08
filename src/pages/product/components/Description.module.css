@@ -11,14 +11,6 @@
   font-family: "Roboto Condensed";
 }
 
-.price {
-  font-family: "Roboto Condensed";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 18px;
-}
-
 .button_addToCart,
 .button_addToCart_disabled {
   border: none;

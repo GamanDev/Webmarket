@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Cart from "./Cart";
-import styles from "./Navcart.module.css";
+import styles from "./index.module.css";
 
 class NavCart extends Component {
   constructor(props) {
@@ -32,21 +32,21 @@ class NavCart extends Component {
     return (
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>
-          <div className={styles.cart_comp}>
-            <img src="assets/img/cart.png" alt="cart" />
+          <div className={styles.cart_composition}>
+            <img src="/assets/img/cart.png" alt="cart" />
             <img
-              src="assets/img/cart_wheel.png"
+              src="/assets/img/cart_wheel.png"
               alt="wheel"
               className={styles.wheel_1}
             />
             <img
-              src="assets/img/cart_wheel.png"
+              src="/assets/img/cart_wheel.png"
               alt="wheel"
               className={styles.wheel_2}
             />
           </div>
           {ItemsInCart.length > 0 && (
-            <span className={styles.items__count}>
+            <span className={styles.count}>
               {ItemsInCart.reduce((acc, val) => acc + val.amount, 0)}
             </span>
           )}

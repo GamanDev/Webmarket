@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import cartReducer from "./cartReducer";
-import currencyReducer from "./currencyReducer";
+import { cartReducer } from "./cartReducer";
+import { currencyReducer } from "./currencyReducer";
 
 export const rootReducer = combineReducers({
   cart: cartReducer,
   currency: currencyReducer,
 });
+
+// rootReduce => index.js

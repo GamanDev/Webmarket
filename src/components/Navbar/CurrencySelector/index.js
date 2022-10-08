@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { graphql } from "@apollo/client/react/hoc";
 import { gql } from "@apollo/client";
+import { graphql } from "@apollo/client/react/hoc";
 import Currency from "./Currency";
+import styles from "./index.module.css";
 
 class CurrencySelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isCurrSelectOpen: false,
-    };
-  }
+  state = {
+    isCurrSelectOpen: false,
+  };
 
   toogleCurrency = (e) => {
     e.stopPropagation();
@@ -33,25 +31,19 @@ class CurrencySelector extends Component {
 
     return (
       <>
-        <div
-          onClick={this.toogleCurrency}
-          style={{
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
+        <div onClick={this.toogleCurrency} className={styles.onCurrencyClick}>
           <strong>{prices[currency].currency.symbol}</strong>
           {this.state.isCurrSelectOpen ? (
             <img
-              src="assets/img/price_vector_up.png"
-              alt="V"
-              style={{ width: "11px", marginLeft: "3px" }}
+              src="/assets/img/price_vector_up.png"
+              alt="Vdown"
+              className={styles.toogleArrow}
             />
           ) : (
             <img
-              src="assets/img/price_vector_down.png"
-              alt="V"
-              style={{ width: "11px", marginLeft: "3px" }}
+              src="/assets/img/price_vector_down.png"
+              alt="Vup"
+              className={styles.toogleArrow}
             />
           )}
         </div>
