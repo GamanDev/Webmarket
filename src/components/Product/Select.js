@@ -3,23 +3,44 @@ import cx from "classnames";
 import styles from "./Select.module.css";
 
 export default class Select extends Component {
+  state = { select: "" };
   render() {
     const { attribute, classSwatch, classText } = this.props;
     const { items, type } = attribute;
-    console.log("select", attribute);
+
     return (
       <div className={styles.select}>
         {items.map((item) => (
           <div key={item.id}>
             {type === "swatch" ? (
-              <div
+              <button
                 style={{
                   background: item.value,
                 }}
-                className={cx(styles.swatch, classSwatch)}
-              ></div>
+                value={item.value}
+                onClick={(e) =>
+                  this.setState({ select: e.currentTarget.value })
+                }
+                className={cx(
+                  styles.swatch,
+                  classSwatch,
+                  this.state.select === item.value && styles.swatch_active
+                )}
+              ></button>
             ) : (
-              <div className={cx(styles.text, classText)}>{item.value}</div>
+              <button
+                className={cx(
+                  styles.text,
+                  classText,
+                  this.state.select === item.value && styles.text_active
+                )}
+                value={item.value}
+                onClick={(e) =>
+                  this.setState({ select: e.currentTarget.value })
+                }
+              >
+                {item.value}
+              </button>
             )}
           </div>
         ))}

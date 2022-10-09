@@ -6,4 +6,33 @@
   height: 32px;
   border: 1px solid #1d1f22;
   box-sizing: border-box;
+  margin-right: 8px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  background: white;
+  box-sizing: border-box;
+  margin-right: 12px;
+
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.text_active {
+  color: white;
+  background: black;
+}
+
+.swatch_active {
+  outline: 1px solid #5ece7b;
+  border: 1px solid rgb(255, 255, 255);
 }

@@ -26,7 +26,7 @@ class Description extends Component {
     return (
       <div className={styles.description}>
         <Title brand={brand} name={name} />
-        <Attributes attributes={attributes} />
+        <Attributes attributes={attributes} ref={this.attributesRef} />
         <section>
           <h4 className={styles.price}>PRICE:</h4>
           <Price prices={prices} />
@@ -38,11 +38,7 @@ class Description extends Component {
             !inStock && styles.button_addToCart_disabled
           )}
           disabled={!inStock}
-          onClick={() =>
-            this.state &&
-            Object.keys(this.state).length === product.attributes.length &&
-            this.submitForm(product)
-          }
+          onClick={this.submitForm}
         >
           ADD TO CART
         </button>
