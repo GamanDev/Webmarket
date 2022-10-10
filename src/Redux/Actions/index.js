@@ -5,12 +5,16 @@ export function currencyChanger(currency) {
   window.localStorage.setItem("currencyIndex", currency);
   return { type: CHANGE_CURRENCY, payload: currency };
 }
-export function pageChanger(page) {
-  return { type: CHANGE_CURRENCY, payload: page };
-}
 
 export function addItemToCart(item) {
-  return { type: ADD_ITEM, payload: item };
+  return {
+    type: ADD_ITEM,
+    payload: {
+      key: item.key,
+      item: item.item,
+      selected: item.selected,
+    },
+  };
 }
 export function removeItemFromCart(item) {
   return { type: REMOVE_ITEM, payload: item };

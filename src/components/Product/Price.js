@@ -5,16 +5,14 @@ import styles from "./Price.module.css";
 
 class Price extends Component {
   render() {
-    const { prices, currency, stl } = this.props;
-
-    const priceCSS = `prices_${stl}`;
+    const { prices, currency, className } = this.props;
 
     return (
       <div className={styles.prices}>
-        <div className={cx(stl ? styles[priceCSS] : styles.prices)}>
+        <div className={cx(styles.prices, className)}>
           {prices[currency].currency.symbol}
         </div>
-        <div className={cx(stl ? styles[priceCSS] : styles.prices)}>
+        <div className={cx(styles.prices, className)}>
           {prices[currency].amount}
         </div>
       </div>

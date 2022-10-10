@@ -13,12 +13,9 @@ import styles from "./[product_id].module.css";
 //this.location...
 
 class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photoIndex: 0,
-    };
-  }
+  state = {
+    photoIndex: 0,
+  };
 
   setPhotoIndex = (photoIndex) => {
     this.setState({

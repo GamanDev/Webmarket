@@ -4,23 +4,5 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 16px;
-}
-
-.counter_buttons_mini,
-.counter_buttons_cart {
-  border: none;
-  width: 26px;
-  height: 26px;
-  border: 1px solid #1d1f22;
-  box-sizing: border-box;
-  background: #ffffff;
-}
-
-.counter_buttons_cart {
-  border: none;
-  width: 45px;
-  height: 45px;
-  border: 1px solid #1d1f22;
-  box-sizing: border-box;
-  background: #ffffff;
+  height: 100%;
 }

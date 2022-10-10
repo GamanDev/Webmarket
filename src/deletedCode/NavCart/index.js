@@ -20,13 +20,15 @@ class NavCart extends Component {
   };
 
   render() {
-    const { currencyIndex, ItemsInCart } = this.props;
+    const { ItemsInCart, currencyIndex } = this.props;
+
+    window.localStorage.setItem("cartStore", JSON.stringify(ItemsInCart));
 
     if (this.state.isCartOpen)
       document.addEventListener("click", () =>
         this.setState({ isCartOpen: false })
       );
-    // if (!ItemsInCart) return null;
+    if (!ItemsInCart) return null;
     return (
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>
@@ -43,12 +45,17 @@ class NavCart extends Component {
               className={styles.wheel_2}
             />
           </div>
+          {ItemsInCart.length > 0 && (
+            <span className={styles.count}>
+              {ItemsInCart.reduce((acc, val) => acc + val.amount, 0)}
+            </span>
+          )}
         </div>
         {this.state.isCartOpen && (
           <Cart
             toggleCart={this.toggleCart}
-            currencyIndex={currencyIndex}
             ItemsInCart={ItemsInCart}
+            currencyIndex={currencyIndex}
           />
         )}
       </main>

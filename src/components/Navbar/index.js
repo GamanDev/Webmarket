@@ -45,7 +45,9 @@ class Nav extends Component {
             </Link>
           ))}
         </section>
-
+        <button onClick={() => console.log(this.props.itemsInCart)}>
+          State checker
+        </button>
         <section className={styles.logo}>
           <img src="/assets/img/green_logo.png" alt="." />
           <img
@@ -69,6 +71,12 @@ class Nav extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    itemsInCart: state.cart.ItemsInCart,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     currencySelector: (id) => dispatch(currencyChanger(id)),
@@ -77,7 +85,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(
   graphql(

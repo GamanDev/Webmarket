@@ -1,7 +1,6 @@
 const initialState = {
-  ItemsInCart: [],
+  ItemsInCart: {},
 };
-//  {key: unique_key, amount: 1, [attribute] : attribute.value}
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
@@ -10,33 +9,29 @@ export const LOCAL_STORE = "LOCAL_STORE";
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      // make function, review function
-      if (
-        state.ItemsInCart.findIndex(
-          (el) => el.key_unique === action.payload.key_unique
-        ) >= 0
-      ) {
-        state.ItemsInCart[
-          state.ItemsInCart.findIndex(
-            (el) => el.key_unique === action.payload.key_unique
-          )
-        ].amount++;
-        return { ItemsInCart: [...state.ItemsInCart] };
-      } else {
+      console.log(action.payload.key);
+      if (state.ItemsInCart[action.payload.key]) {
+        console.log("exist");
+        state.ItemsInCart[action.payload.key].amount++;
         return {
-          ItemsInCart: [...state.ItemsInCart, action.payload],
+          ...state,
         };
       }
+      console.log("doesnt exist");
+      return {
+        ItemsInCart: {
+          ...state.ItemsInCart,
+          [action.payload.key]: {
+            item: { ...action.payload.item },
+            amount: 1,
+            selected: action.payload.selected,
+          },
+        },
+      };
     case REMOVE_ITEM:
-      state.ItemsInCart[
-        state.ItemsInCart.findIndex(
-          (el) => el.key_unique === action.payload.key_unique
-        )
-      ].amount--;
-
-      return { ItemsInCart: state.ItemsInCart.filter((el) => el.amount > 0) };
-    case LOCAL_STORE:
-      return { ItemsInCart: action.payload };
+      return {};
+    // case LOCAL_STORE:
+    //   return { ItemsInCart: action.payload };
     default:
       return state;
   }

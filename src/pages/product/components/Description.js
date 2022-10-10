@@ -7,26 +7,49 @@ import Title from "../../../components/Product/Title";
 import { addItemToCart } from "../../../redux/actions";
 import styles from "./Description.module.css";
 
+// Item js
 class Description extends Component {
-  state = {};
-  attributesRef = React.createRef();
+  constructor(props) {
+    super(props);
 
-  submitForm = (product) => {
-    console.log("ref", this.attributesRef.current);
+    this.attributesRef = React.createRef();
+    this.attributesRef.current = [];
+  }
+  submitForm = () => {
+    if (
+      this.props.product.attributes.length === this.attributesRef.current.length
+    ) {
+      const key =
+        this.props.product.id + "-" + this.attributesRef.current.join("-");
+      const item = this.props.product;
+      const selected = this.attributesRef.current;
+      const product = { key, item, selected };
+      this.props.addItem(product);
+    }
   };
 
-  setAttributes = (key, value) => {};
+  submit = () => {
+    console.log(
+      this.props.product.attributes.length === this.attributesRef.current.length
+    );
+  };
 
   render() {
     const { product } = this.props;
     const { brand, name, description, prices, attributes, inStock } = product;
+    console.log(
+      product.attributes.length === this.attributesRef.current.length
+    );
 
     if (!this.props.product) return null;
-
     return (
       <div className={styles.description}>
         <Title brand={brand} name={name} />
-        <Attributes attributes={attributes} ref={this.attributesRef} />
+        <Attributes
+          attributes={attributes}
+          selectionsRef={this.attributesRef}
+        />
+        {/* prop drill until selected state "Select" */}
         <section>
           <h4 className={styles.price}>PRICE:</h4>
           <Price prices={prices} />
@@ -54,7 +77,7 @@ class Description extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addItem: (item) => dispatch(addItemToCart(item)),
+    addItem: (product) => dispatch(addItemToCart(product)),
   };
 }
 
