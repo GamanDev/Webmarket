@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItemToCart, removeItemFromCart } from "../../redux/actions";
+import { decrementItem, incrementItem } from "../../redux/actions";
 import styles from "./Counter.module.css";
 
 class Counter extends Component {
   render() {
-    const { amount, addItem, removeItem, className } = this.props;
+    const {
+      amount,
+      incrementItem,
+      decrementItem,
+      className,
+      itemKey,
+      classAmount,
+    } = this.props;
 
     return (
       <div className={styles.counter}>
-        <button className={className}>+</button>
-        <span>{amount}</span>
-        <button className={className}>-</button>
+        <button className={className} onClick={() => incrementItem(itemKey)}>
+          +
+        </button>
+        <span className={classAmount}>{amount}</span>
+        <button className={className} onClick={() => decrementItem(itemKey)}>
+          -
+        </button>
       </div>
     );
   }
@@ -19,8 +30,8 @@ class Counter extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addItem: (id) => dispatch(addItemToCart(id)),
-    removeItem: (id) => dispatch(removeItemFromCart(id)),
+    incrementItem: (key) => dispatch(incrementItem(key)),
+    decrementItem: (key) => dispatch(decrementItem(key)),
   };
 }
 

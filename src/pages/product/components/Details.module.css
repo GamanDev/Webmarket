@@ -45,3 +45,15 @@
 .button_addToCart_disabled:active {
   scale: 1;
 }
+
+.name {
+  margin-bottom: 43px;
+}
+
+.price_details {
+  margin-top: 10px;
+}
+
+.header {
+  margin: 0;
+}

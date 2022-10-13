@@ -1,0 +1,24 @@
+.pagination {
+  width: 30%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 16px;
+  right: 16px;
+  user-select: none;
+}
+
+.vector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.73);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.vector:active {
+  scale: 0.95;
+}

@@ -6,22 +6,29 @@ export default class Attributes extends Component {
   // state = {selected : []}
   // info about selected attribute || active attribute
   render() {
-    const { attributes, classSwatch, classText, selectionsRef, selected } =
-      this.props;
+    const {
+      attributes,
+      classSwatch,
+      classText,
+      selectionsRef,
+      selected,
+      className,
+    } = this.props;
     return (
-      <div>
+      <>
         {attributes.map((attribute, i) => (
           <Attribute
             key={attribute.id}
             attribute={attribute}
             classSwatch={classSwatch}
             classText={classText}
+            className={className}
             selectionsRef={selectionsRef}
             attributeIndex={i}
             selected={selected}
           />
         ))}
-      </div>
+      </>
     );
   }
 }

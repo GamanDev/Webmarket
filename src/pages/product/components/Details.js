@@ -5,10 +5,9 @@ import Attributes from "../../../components/Product/Attributes";
 import Price from "../../../components/Product/Price";
 import Title from "../../../components/Product/Title";
 import { addItemToCart } from "../../../redux/actions";
-import styles from "./Description.module.css";
+import styles from "./Details.module.css";
 
-// Item js
-class Description extends Component {
+class Details extends Component {
   constructor(props) {
     super(props);
 
@@ -28,31 +27,22 @@ class Description extends Component {
     }
   };
 
-  submit = () => {
-    console.log(
-      this.props.product.attributes.length === this.attributesRef.current.length
-    );
-  };
-
   render() {
     const { product } = this.props;
-    const { brand, name, description, prices, attributes, inStock } = product;
-    console.log(
-      product.attributes.length === this.attributesRef.current.length
-    );
+    const { brand, name, Details, prices, attributes, inStock } = product;
 
     if (!this.props.product) return null;
     return (
-      <div className={styles.description}>
-        <Title brand={brand} name={name} />
+      <div className={styles.Details}>
+        <Title brand={brand} name={name} className={styles.name} />
         <Attributes
           attributes={attributes}
           selectionsRef={this.attributesRef}
+          className={styles.header}
         />
-        {/* prop drill until selected state "Select" */}
         <section>
           <h4 className={styles.price}>PRICE:</h4>
-          <Price prices={prices} />
+          <Price prices={prices} className={styles.price_details} />
         </section>
 
         <button
@@ -67,8 +57,8 @@ class Description extends Component {
         </button>
 
         <article
-          className={styles.description__article}
-          dangerouslySetInnerHTML={{ __html: description }}
+          className={styles.Details__article}
+          dangerouslySetInnerHTML={{ __html: Details }}
         ></article>
       </div>
     );
@@ -81,4 +71,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Description);
+export default connect(null, mapDispatchToProps)(Details);

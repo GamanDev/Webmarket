@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { showTotalCount } from "../../../utils/showTotalCount";
 import Cart from "./Cart";
 import styles from "./index.module.css";
 
@@ -22,11 +23,13 @@ class NavCart extends Component {
   render() {
     const { currencyIndex, ItemsInCart } = this.props;
 
+    const itemsCount = showTotalCount(ItemsInCart);
+
     if (this.state.isCartOpen)
       document.addEventListener("click", () =>
         this.setState({ isCartOpen: false })
       );
-    // if (!ItemsInCart) return null;
+
     return (
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>
@@ -43,6 +46,9 @@ class NavCart extends Component {
               className={styles.wheel_2}
             />
           </div>
+          {itemsCount > 0 && (
+            <div className={styles.showCount}>{itemsCount}</div>
+          )}
         </div>
         {this.state.isCartOpen && (
           <Cart

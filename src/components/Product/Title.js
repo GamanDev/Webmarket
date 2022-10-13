@@ -4,11 +4,11 @@ import styles from "./Title.module.css";
 
 export default class Title extends Component {
   render() {
-    const { brand, name, className } = this.props;
+    const { brand, name, className, classBrand } = this.props;
 
     return (
       <>
-        <div className={cx(styles.brand, className)}>{brand}</div>
+        <div className={cx(styles.brand, classBrand)}>{brand}</div>
         <div className={cx(styles.name, className)}>{name}</div>
       </>
     );

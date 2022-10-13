@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import cx from "classnames";
-import styles from "./Select.module.css";
+import styles from "./Selects.module.css";
 
 // DOM manipulation  - do not use (in REACT) ||  || innerHTML ... so on || data.attributes
 
-// Attributes
-// Selects
+// fn => (two way data biding) || read about
 
 export default class Selects extends Component {
   state = { selected: null, isSelected: false };
@@ -18,26 +17,17 @@ export default class Selects extends Component {
   };
   render() {
     const { attribute, classSwatch, classText, selected } = this.props;
-    //selectionsRef => []
-    console.log("selected", selected);
-    console.log("index", this.props.attributeIndex);
     const { items, type } = attribute;
-    // select || selector ...
-    // fn => (two way data biding) || read about
     return (
-      <div className={styles.select}>
-        {/* styles.selects */}
-        {/* Attribute */}
+      <div className={styles.selects}>
         {items.map((item) => (
-          <div key={item.id}>
-            {/* select js */}
+          <div key={item.id} className={styles.select}>
             {type === "swatch" ? (
               <button
                 style={{
                   background: item.value,
                 }}
                 onClick={() => this.select(item)}
-                // function
                 className={cx(
                   styles.swatch,
                   classSwatch,
@@ -62,7 +52,6 @@ export default class Selects extends Component {
                     styles.text_active
                 )}
                 onClick={() => this.select(item)}
-                // function
               >
                 {item.value}
               </button>

@@ -15,7 +15,6 @@ class Nav extends Component {
       localStorage.getItem("currencyIndex") !== null &&
       localStorage.getItem("cartStore") !== null
     ) {
-      console.log("typeof ", typeof Storage);
       this.props.currencySelector(window.localStorage.getItem("currencyIndex"));
       this.props.addLocalStorage(
         JSON.parse(window.localStorage.getItem("cartStore"))
@@ -45,9 +44,6 @@ class Nav extends Component {
             </Link>
           ))}
         </section>
-        <button onClick={() => console.log(this.props.itemsInCart)}>
-          State checker
-        </button>
         <section className={styles.logo}>
           <img src="/assets/img/green_logo.png" alt="." />
           <img
@@ -71,12 +67,6 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    itemsInCart: state.cart.ItemsInCart,
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     currencySelector: (id) => dispatch(currencyChanger(id)),
@@ -85,7 +75,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(
   graphql(

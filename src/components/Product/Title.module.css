@@ -5,8 +5,9 @@
   line-height: 27px;
   margin-bottom: 16px;
 }
-
+.brand {
+  margin-top: 80px;
+}
 .name {
   font-weight: 400;
-  margin-top: 16px;
 }

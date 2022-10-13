@@ -6,5 +6,3 @@ export const rootReducer = combineReducers({
   cart: cartReducer,
   currency: currencyReducer,
 });
-
-// rootReduce => index.js

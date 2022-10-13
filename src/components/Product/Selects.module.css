@@ -1,12 +1,14 @@
-.select {
+.selects {
   display: flex;
 }
+
 .swatch {
   width: 32px;
   height: 32px;
   border: 1px solid #1d1f22;
-  box-sizing: border-box;
   margin-right: 8px;
+  margin-top: 8px;
+  box-sizing: border-box;
 }
 
 .text {
@@ -19,6 +21,7 @@
   background: white;
   box-sizing: border-box;
   margin-right: 12px;
+  margin-top: 8px;
 
   font-family: "Source Sans Pro";
   font-style: normal;

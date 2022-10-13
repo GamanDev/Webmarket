@@ -1,56 +1,44 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Item from "../../Product";
-import Price from "../../Product/Price";
-import Total from "../../Product/Total";
-import Title from "../../Product/Title";
+import cx from "classnames";
 import styles from "./Cart.module.css";
-import Attributes from "../../Product/Attributes";
-import Counter from "../../Product/Counter";
-import Image from "../../Product/Image";
+import { showTotalCount } from "../../../utils/showTotalCount";
+import Total from "../../Product/Total";
+import Button from "../../Buttons/Button";
+import { Link } from "react-router-dom";
 
 export default class Cart extends Component {
   render() {
     const { toggleCart, currencyIndex, ItemsInCart } = this.props;
-    console.log("ItemsInCart", ItemsInCart);
+
+    const itemsCount = showTotalCount(ItemsInCart);
 
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
+          <header className={cx(styles.header, !itemsCount && styles.empty)}>
+            <strong>My bag,</strong> {itemsCount} items
+          </header>
           {Object.keys(ItemsInCart).map((product) => (
-            <div key={ItemsInCart[product].item.id} className={styles.product}>
-              <section className={styles.details}>
-                <Title
-                  brand={ItemsInCart[product].item.brand}
-                  name={ItemsInCart[product].item.name}
-                  className={styles.title_mini}
-                />
-                <Price
-                  prices={ItemsInCart[product].item.prices}
-                  currencyIndex={currencyIndex}
-                  className={styles.prices_mini}
-                />
-                <Attributes
-                  attributes={ItemsInCart[product].item.attributes}
-                  classText={styles.text_mini}
-                  classSwatch={styles.swatch_mini}
-                  selected={ItemsInCart[product].selected}
-                />
-              </section>
-              <section>
-                <Counter
-                  amount={ItemsInCart[product].amount}
-                  className={styles.counter_mini}
-                />
-              </section>
-              <section>
-                <Image
-                  gallery={ItemsInCart[product].item.gallery[0]}
-                  className={styles.gallery_mini}
-                />
-              </section>
-            </div>
+            <Item
+              key={product}
+              product={product}
+              currencyIndex={currencyIndex}
+              ItemsInCart={ItemsInCart}
+            />
           ))}
+
+          {itemsCount > 0 && (
+            <>
+              <Total currencyIndex={currencyIndex} ItemsInCart={ItemsInCart} />
+              <section className={styles.buttons}>
+                <Link to="/cart" onClick={toggleCart}>
+                  <Button value="View Bag" className={styles.viewBag} />
+                </Link>
+                <Button value="Checkout" className={styles.checkout} />
+              </section>
+            </>
+          )}
         </div>
       </div>
     );

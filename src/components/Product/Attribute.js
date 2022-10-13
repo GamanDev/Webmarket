@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styles from "./Attribute.module.css";
 import Selects from "./Selects";
 
 export default class Attribute extends Component {
@@ -11,10 +10,11 @@ export default class Attribute extends Component {
       selectionsRef,
       attributeIndex,
       selected,
+      className,
     } = this.props;
     return (
       <>
-        <h3>{attribute.name}</h3>
+        <h3 className={className}>{attribute.name}</h3>
         <Selects
           attribute={attribute}
           classSwatch={classSwatch}

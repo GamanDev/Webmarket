@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import Price from "./Price";
-import Title from "./Title";
-import Counter from "./Counter";
-import Image from "./Image";
-import Attributes from "./Attributes";
-import styles from "./index.module.css";
+import Attributes from "../../components/Product/Attributes";
+import Counter from "../../components/Product/Counter";
+import Image from "../../components/Product/Image";
+import Price from "../../components/Product/Price";
+import Title from "../../components/Product/Title";
+
+import styles from "./Item.module.css";
 
 export default class Item extends Component {
   render() {
@@ -16,18 +17,18 @@ export default class Item extends Component {
           <Title
             brand={ItemsInCart[product].item.brand}
             name={ItemsInCart[product].item.name}
-            className={styles.title_mini}
-            classBrand={styles.title_mini}
+            className={styles.title_cart}
+            classBrand={styles.title_cart}
           />
           <Price
             prices={ItemsInCart[product].item.prices}
             currencyIndex={currencyIndex}
-            className={styles.prices_mini}
+            className={styles.prices_cart}
           />
           <Attributes
             attributes={ItemsInCart[product].item.attributes}
-            classText={styles.text_mini}
-            classSwatch={styles.swatch_mini}
+            classText={styles.text_cart}
+            classSwatch={styles.swatch_cart}
             selected={ItemsInCart[product].selected}
             className={styles.header}
           />
@@ -35,14 +36,15 @@ export default class Item extends Component {
         <section className={styles.counter}>
           <Counter
             amount={ItemsInCart[product].amount}
-            className={styles.counter_mini}
+            className={styles.counter_cart}
             itemKey={product}
+            classAmount={styles.amount}
           />
         </section>
         <section>
           <Image
-            gallery={ItemsInCart[product].item.gallery[0]}
-            className={styles.gallery_mini}
+            gallery={ItemsInCart[product].item.gallery}
+            className={styles.gallery_cart}
           />
         </section>
       </div>
