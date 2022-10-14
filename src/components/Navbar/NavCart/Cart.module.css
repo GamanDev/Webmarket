@@ -24,8 +24,7 @@
 
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
-
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .header {

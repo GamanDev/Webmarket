@@ -23,7 +23,7 @@ class Product extends Component {
     if (loading) return null;
 
     return (
-      <main className={styles.main__product}>
+      <main className={styles.product}>
         <PhotoCarousel
           gallery={product.gallery}
           setPhotoIndex={this.setPhotoIndex}

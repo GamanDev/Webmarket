@@ -29,11 +29,11 @@ class Details extends Component {
 
   render() {
     const { product } = this.props;
-    const { brand, name, Details, prices, attributes, inStock } = product;
-
+    const { brand, name, description, prices, attributes, inStock } = product;
+    console.log("details", description);
     if (!this.props.product) return null;
     return (
-      <div className={styles.Details}>
+      <div>
         <Title brand={brand} name={name} className={styles.name} />
         <Attributes
           attributes={attributes}
@@ -42,14 +42,11 @@ class Details extends Component {
         />
         <section>
           <h4 className={styles.price}>PRICE:</h4>
-          <Price prices={prices} className={styles.price_details} />
+          <Price prices={prices} className={styles.details} />
         </section>
 
         <button
-          className={cx(
-            styles.button_addToCart,
-            !inStock && styles.button_addToCart_disabled
-          )}
+          className={cx(styles.addToCart, !inStock && styles.disabled)}
           disabled={!inStock}
           onClick={this.submitForm}
         >
@@ -57,8 +54,8 @@ class Details extends Component {
         </button>
 
         <article
-          className={styles.Details__article}
-          dangerouslySetInnerHTML={{ __html: Details }}
+          className={styles.article}
+          dangerouslySetInnerHTML={{ __html: description }}
         ></article>
       </div>
     );

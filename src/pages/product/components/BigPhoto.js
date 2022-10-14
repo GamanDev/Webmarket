@@ -11,12 +11,9 @@ export default class BigPhoto extends Component {
         <img
           src={gallery[photoIndex]}
           alt="product_picture"
-          className={cx(
-            styles.big_photo,
-            !inStock && styles.big_photo_outOfStock
-          )}
+          className={cx(styles.photo, !inStock && styles.outOfStock)}
         />
-        {!inStock && <div className={styles.no_text}>Out Of Stock</div>}
+        {!inStock && <div className={styles.text}>Out Of Stock</div>}
       </>
     );
   }

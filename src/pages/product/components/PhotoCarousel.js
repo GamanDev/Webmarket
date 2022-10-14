@@ -14,7 +14,7 @@ export default class PhotoCarousel extends Component {
             key={photo}
             src={photo}
             alt={photo}
-            className={styles.mini_photo}
+            className={styles.photo}
             onClick={() => setPhotoIndex(i)}
           />
         ))}

@@ -11,8 +11,8 @@
   font-family: "Roboto Condensed";
 }
 
-.button_addToCart,
-.button_addToCart_disabled {
+.addToCart,
+.disabled {
   border: none;
   width: 292px;
   height: 52px;
@@ -25,7 +25,7 @@
   cursor: pointer;
 }
 
-.description__article {
+.article {
   width: 292px;
   margin-top: 40px;
   font-family: "Roboto";
@@ -34,15 +34,15 @@
   line-height: 159.96%;
 }
 
-.button_addToCart_disabled {
+.disabled {
   background: rgba(141, 143, 154, 1);
   cursor: not-allowed;
 }
 
-.button_addToCart:active {
+.addToCart:active {
   scale: 0.95;
 }
-.button_addToCart_disabled:active {
+.disabled:active {
   scale: 1;
 }
 
@@ -50,7 +50,7 @@
   margin-bottom: 43px;
 }
 
-.price_details {
+.details {
   margin-top: 10px;
 }
 

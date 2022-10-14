@@ -33,7 +33,7 @@ class NavCart extends Component {
     return (
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>
-          <div className={styles.cart_composition}>
+          <div className={styles.composition}>
             <img src="/assets/img/cart.png" alt="cart" />
             <img
               src="/assets/img/cart_wheel.png"
