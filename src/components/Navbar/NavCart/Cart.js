@@ -12,6 +12,7 @@ export default class Cart extends Component {
     const { toggleCart, currencyIndex, ItemsInCart } = this.props;
 
     const itemsCount = showTotalCount(ItemsInCart);
+    if (!ItemsInCart) return null;
 
     return (
       <div className={styles.modal} onClick={toggleCart}>

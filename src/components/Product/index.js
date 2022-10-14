@@ -9,7 +9,8 @@ import styles from "./index.module.css";
 export default class Item extends Component {
   render() {
     const { ItemsInCart, currencyIndex, product } = this.props;
-
+    console.log("ItemsInCart", ItemsInCart);
+    if (!ItemsInCart) return null;
     return (
       <div className={styles.product}>
         <section className={styles.details}>

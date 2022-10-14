@@ -5,9 +5,22 @@ import styles from "./index.module.css";
 
 class FastCart extends Component {
   addFastCart = (product) => {
-    const Itemobj = { item: product, amount: 1, key_unique: product.id };
+    const Itemobj = {
+      key: product.product.id + "-",
+      item: { ...product.product },
+      selected: [],
+    };
     this.props.addItem(Itemobj);
   };
+
+  // {
+  //       const key =
+  //         this.props.product.id + "-" + this.attributesRef.current.join("-");
+  //       const item = this.props.product;
+  //       const selected = this.attributesRef.current;
+  //       const product = { key, item, selected };
+  //       this.props.addItem(product);
+  //     }
 
   render() {
     const { item } = this.props;
