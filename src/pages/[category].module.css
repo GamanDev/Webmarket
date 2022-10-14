@@ -3,8 +3,8 @@
 }
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 40px;
-  row-gap: 103px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(386px, 1fr));
+  grid-column-gap: 40px;
+  grid-row-gap: 103px;
 }

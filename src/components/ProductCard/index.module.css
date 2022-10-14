@@ -3,7 +3,6 @@
   position: relative;
   flex-direction: column;
   justify-content: center;
-
   max-width: 386px;
   height: 444px;
   box-sizing: border-box;
@@ -13,12 +12,12 @@
   padding-top: 11px;
 }
 
-.card_outOfStock {
+.outOfStock {
   opacity: 0.5;
   position: relative;
 }
 
-.no_text {
+.text {
   position: absolute;
   left: 32.42%;
   right: 25.71%;
@@ -33,17 +32,17 @@
   color: #8d8f9a;
 }
 
-.card__image {
+.image {
   display: flex;
   position: relative;
-  object-fit: contain;
+  object-fit: cover;
   min-width: 356px;
   max-width: 356px;
   max-height: 338px;
   min-height: 338px;
   margin-bottom: 21px;
 }
-.name_price {
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

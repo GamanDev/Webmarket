@@ -14,17 +14,17 @@ class ProductCard extends Component {
       <span>
         <Link
           to={`/product/${id}`}
-          className={cx(styles.card, !inStock && styles.card_outOfStock)}
+          className={cx(styles.card, !inStock && styles.outOfStock)}
         >
-          <img src={gallery[0]} alt="pic" className={styles.card__image} />
-          <div className={styles.name_price}>
+          <img src={gallery[0]} alt="pic" className={styles.image} />
+          <div className={styles.footer}>
             <div>{`${brand} ${name}`}</div>
             <div className={styles.price}>
               <div>{prices[currency].currency.symbol}</div>
               <div>{prices[currency].amount}</div>
             </div>
           </div>
-          {!inStock && <div className={styles.no_text}>Out Of Stock</div>}
+          {!inStock && <div className={styles.text}>Out Of Stock</div>}
         </Link>
         {inStock && !attributes.length && <FastCart item={this.props} />}
       </span>
