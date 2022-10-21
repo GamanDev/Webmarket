@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { showTotalCount } from "../../../utils/showTotalCount";
 import Cart from "./Cart";
+import { getTotalCount } from "../../../utils";
 import styles from "./index.module.css";
 
 class NavCart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isCartOpen: false,
-    };
-  }
+  state = {
+    isCartOpen: false,
+  };
 
   toggleCart = (e) => {
     e.stopPropagation();
@@ -22,8 +19,7 @@ class NavCart extends Component {
 
   render() {
     const { currencyIndex, ItemsInCart } = this.props;
-
-    const itemsCount = showTotalCount(ItemsInCart);
+    const itemsCount = getTotalCount(ItemsInCart);
 
     if (this.state.isCartOpen)
       document.addEventListener("click", () =>
@@ -34,17 +30,7 @@ class NavCart extends Component {
       <main>
         <div className={styles.cart} onClick={this.toggleCart}>
           <div className={styles.composition}>
-            <img src="/assets/img/cart.png" alt="cart" />
-            <img
-              src="/assets/img/cart_wheel.png"
-              alt="wheel"
-              className={styles.wheel_1}
-            />
-            <img
-              src="/assets/img/cart_wheel.png"
-              alt="wheel"
-              className={styles.wheel_2}
-            />
+            <img src="/assets/img/black_cart.svg" alt="cart" />
           </div>
           {itemsCount > 0 && (
             <div className={styles.showCount}>{itemsCount}</div>

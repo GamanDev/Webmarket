@@ -11,14 +11,14 @@ class Currency extends Component {
 
     return (
       <div className={styles.currency} onClick={toogleCurrency}>
-        {prices.map((curr, i) => (
+        {prices.map((currency, i) => (
           <div
-            key={curr.currency.symbol}
+            key={currency.currency.symbol}
             className={styles.currencies}
             onClick={() => currencySelector(i)}
           >
-            <div className={styles.symbol}>{curr.currency.symbol}</div>
-            <div className={styles.label}>{curr.currency.label}</div>
+            <div className={styles.symbol}>{currency.currency.symbol}</div>
+            <div className={styles.label}>{currency.currency.label}</div>
           </div>
         ))}
       </div>

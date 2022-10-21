@@ -14,21 +14,18 @@ export default class Attributes extends Component {
       selected,
       className,
     } = this.props;
-    return (
-      <>
-        {attributes.map((attribute, i) => (
-          <Attribute
-            key={attribute.id}
-            attribute={attribute}
-            classSwatch={classSwatch}
-            classText={classText}
-            className={className}
-            selectionsRef={selectionsRef}
-            attributeIndex={i}
-            selected={selected}
-          />
-        ))}
-      </>
-    );
+
+    return attributes.map((attribute, i) => (
+      <Attribute
+        key={attribute.id}
+        attribute={attribute}
+        classSwatch={classSwatch}
+        classText={classText}
+        className={className}
+        selectionsRef={selectionsRef}
+        attributeIndex={i}
+        selected={selected}
+      />
+    ));
   }
 }

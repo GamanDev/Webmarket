@@ -31,17 +31,17 @@ class CurrencySelector extends Component {
 
     return (
       <>
-        <div onClick={this.toogleCurrency} className={styles.onCurrencyClick}>
+        <div onClick={this.toogleCurrency} className={styles.currency_button}>
           <strong>{prices[currency].currency.symbol}</strong>
           {this.state.isCurrSelectOpen ? (
             <img
-              src="/assets/img/price_vector_up.png"
+              src="/assets/img/price_vector_up.svg"
               alt="Vdown"
               className={styles.toogleArrow}
             />
           ) : (
             <img
-              src="/assets/img/price_vector_down.png"
+              src="/assets/img/price_vector_down.svg"
               alt="Vup"
               className={styles.toogleArrow}
             />

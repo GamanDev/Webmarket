@@ -1,5 +1,5 @@
 const initialState = {
-  currencyIndex: 0,
+  currencyIndex: window.localStorage.getItem("currencyIndex") || 0,
 };
 
 export const CHANGE_CURRENCY = "CHANGE_CURRENCY";

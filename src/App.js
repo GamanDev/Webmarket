@@ -1,10 +1,8 @@
 import { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Layout from "./pages/[category]";
-import Cart from "./pages/cart";
-
 import Nav from "./components/Navbar";
-
+import Cart from "./pages/cart";
+import Layout from "./pages/[category]";
 import Product from "./pages/product/[product_id]";
 
 class App extends Component {

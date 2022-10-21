@@ -9,7 +9,9 @@ class ProductCard extends Component {
   render() {
     const { currency, product } = this.props;
     const { name, gallery, prices, inStock, id, brand, attributes } = product;
+
     if (!product) return null;
+
     return (
       <span>
         <Link

@@ -7,7 +7,7 @@ import styles from "./Selects.module.css";
 // fn => (two way data biding) || read about
 
 export default class Selects extends Component {
-  state = { selected: null, isSelected: false };
+  state = { selected: null };
 
   select = (item) => {
     this.setState({ selected: item });
@@ -15,9 +15,11 @@ export default class Selects extends Component {
       this.props.selectionsRef.current[this.props.attributeIndex] = item.value;
     }
   };
+
   render() {
     const { attribute, classSwatch, classText, selected } = this.props;
     const { items, type } = attribute;
+
     return (
       <div className={styles.selects}>
         {items.map((item) => (

@@ -1,61 +1,62 @@
 const initialState = {
-  ItemsInCart: {},
+  ItemsInCart: JSON.parse(window.localStorage.getItem("cartStore")) || {},
 };
 
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const LOCAL_STORE = "LOCAL_STORE";
-function controlLocalStorage(item) {
+
+function getItems(item) {
   window.localStorage.setItem("cartStore", JSON.stringify(item));
 }
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      if (state.ItemsInCart[action.payload.key]) {
-        state.ItemsInCart[action.payload.key].amount++;
+      const result = {
+        ItemsInCart: {
+          ...state.ItemsInCart,
+          [action.payload.key]: {
+            ...action.payload,
+            item: state.ItemsInCart[action.payload.key]
+              ? state.ItemsInCart[action.payload.key].item
+              : action.payload.item,
+            selected: state.ItemsInCart[action.payload.key]
+              ? state.ItemsInCart[action.payload.key].selected
+              : action.payload.selected,
+            amount: state.ItemsInCart[action.payload.key]
+              ? state.ItemsInCart[action.payload.key].amount + 1
+              : 1,
+          },
+        },
+      };
+      getItems({ ...result.ItemsInCart });
+      return result;
 
-        const result = {
-          ...state,
-          ItemsInCart: { ...state.ItemsInCart },
-        };
-        controlLocalStorage(result);
-        return result;
-      } else {
-        const result = {
+    case REMOVE_ITEM:
+      if (state.ItemsInCart[action.payload.key].amount > 1) {
+        const remover = {
           ItemsInCart: {
             ...state.ItemsInCart,
             [action.payload.key]: {
-              item: { ...action.payload.item },
-              amount: 1,
-              selected: [...action.payload.selected],
+              ...action.payload,
+              item: state.ItemsInCart[action.payload.key]
+                ? state.ItemsInCart[action.payload.key].item
+                : action.payload.item,
+              selected: state.ItemsInCart[action.payload.key]
+                ? state.ItemsInCart[action.payload.key].selected
+                : action.payload.selected,
+              amount: state.ItemsInCart[action.payload.key].amount - 1,
             },
           },
         };
-        controlLocalStorage(result);
-        return result;
-      }
-    case REMOVE_ITEM:
-      if (state.ItemsInCart[action.payload.key].amount > 1) {
-        state.ItemsInCart[action.payload.key].amount--;
-
-        const result = {
-          ...state,
-          ItemsInCart: { ...state.ItemsInCart },
-        };
-        controlLocalStorage(result);
-        return result;
+        getItems({ ...remover.ItemsInCart });
+        return remover;
       } else {
         delete state.ItemsInCart[action.payload.key];
-        const result = {
-          ...state,
-          ItemsInCart: { ...state.ItemsInCart },
-        };
-        controlLocalStorage(result);
-        return result;
+        getItems({ ...state.ItemsInCart });
+        return { ...state, ItemsInCart: { ...state.ItemsInCart } };
       }
-    case LOCAL_STORE:
-      return action.payload;
     default:
       return state;
   }

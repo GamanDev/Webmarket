@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import Item from "../../Product";
-import cx from "classnames";
-import styles from "./Cart.module.css";
-import { showTotalCount } from "../../../utils/showTotalCount";
-import Total from "../../Product/Total";
-import Button from "../../Buttons/Button";
 import { Link } from "react-router-dom";
+import cx from "classnames";
+import Item from "../../Product";
+import Total from "../../Product/Total";
+import { getTotalCount } from "../../../utils";
+import styles from "./Cart.module.css";
 
 export default class Cart extends Component {
   render() {
     const { toggleCart, currencyIndex, ItemsInCart } = this.props;
 
-    const itemsCount = showTotalCount(ItemsInCart);
+    const itemsCount = getTotalCount(ItemsInCart);
     if (!ItemsInCart) return null;
 
     return (
@@ -34,9 +33,9 @@ export default class Cart extends Component {
               <Total currencyIndex={currencyIndex} ItemsInCart={ItemsInCart} />
               <section className={styles.buttons}>
                 <Link to="/cart" onClick={toggleCart}>
-                  <Button value="View Bag" className={styles.viewBag} />
+                  <button className={styles.viewBag}> View Bag</button>
                 </Link>
-                <Button value="Checkout" className={styles.checkout} />
+                <button className={styles.checkout}>Checkout</button>
               </section>
             </>
           )}

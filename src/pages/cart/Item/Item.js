@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import Attributes from "../../components/Product/Attributes";
-import Counter from "../../components/Product/Counter";
-import Image from "../../components/Product/Image";
-import Price from "../../components/Product/Price";
-import Title from "../../components/Product/Title";
-
+import Attributes from "../../../components/Product/Attributes";
+import Counter from "../../../components/Product/Counter";
+import Image from "../../../components/Product/Image";
+import Price from "../../../components/Product/Price";
+import Title from "../../../components/Product/Title";
 import styles from "./Item.module.css";
 
 export default class Item extends Component {

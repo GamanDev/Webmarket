@@ -21,7 +21,7 @@ class Details extends Component {
       const key =
         this.props.product.id + "-" + this.attributesRef.current.join("-");
       const item = this.props.product;
-      const selected = this.attributesRef.current;
+      const selected = [...this.attributesRef.current];
       const product = { key, item, selected };
       this.props.addItem(product);
     }

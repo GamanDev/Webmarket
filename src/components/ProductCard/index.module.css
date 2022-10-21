@@ -5,11 +5,9 @@
   justify-content: center;
   max-width: 386px;
   height: 444px;
-  box-sizing: border-box;
   flex-basis: 413px;
-  padding-left: 16px;
-  padding-right: 14px;
-  padding-top: 11px;
+  padding: 11px 14px 0 16px;
+  box-sizing: border-box;
 }
 
 .outOfStock {
@@ -19,16 +17,13 @@
 
 .text {
   position: absolute;
-  left: 32.42%;
-  right: 25.71%;
-  top: 40.24%;
-  bottom: 43.94%;
-
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   font-weight: 400;
   font-size: 24px;
   line-height: 160%;
   align-items: center;
-
   color: #8d8f9a;
 }
 
@@ -46,8 +41,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Raleway";
-  font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 160%;
@@ -61,27 +54,15 @@
 .fast_cart {
   display: none;
   position: relative;
-  width: 52px;
-  height: 52px;
-  border-radius: 100%;
-  background: #5ece7b;
-  bottom: 124px;
-  left: 303px;
+  bottom: 140px;
+  left: 280px;
   border: none;
+  cursor: pointer;
 }
-.white_cart {
+.cart {
   position: absolute;
   top: 15px;
   left: 12px;
-}
-.white_wheel1,
-.white_wheel2 {
-  position: absolute;
-  left: 18px;
-  bottom: 15px;
-}
-.white_wheel2 {
-  left: 32px;
 }
 
 .card:hover + .fast_cart {
@@ -91,7 +72,6 @@
 .fast_cart:hover {
   display: block;
   opacity: 0.8;
-  cursor: pointer;
 }
 .fast_cart:active {
   scale: 0.95;

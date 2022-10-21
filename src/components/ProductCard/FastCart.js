@@ -5,12 +5,12 @@ import styles from "./index.module.css";
 
 class FastCart extends Component {
   addFastCart = (product) => {
-    const Itemobj = {
+    const item = {
       key: product.product.id + "-",
       item: { ...product.product },
       selected: [],
     };
-    this.props.addItem(Itemobj);
+    this.props.addItem(item);
   };
 
   render() {
@@ -21,21 +21,7 @@ class FastCart extends Component {
         className={styles.fast_cart}
         onClick={() => this.addFastCart(item)}
       >
-        <img
-          src="assets/img/white_cart.png"
-          alt=""
-          className={styles.white_cart}
-        />
-        <img
-          src="assets/img/white_wheel.png"
-          alt=""
-          className={styles.white_wheel1}
-        />
-        <img
-          src="assets/img/white_wheel.png"
-          alt=""
-          className={styles.white_wheel2}
-        />
+        <img src="assets/img/fast_cart.svg" alt="" className={styles.cart} />
       </button>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pagination from "../../pages/cart/Pagination";
+import Pagination from "../../pages/cart/Item/Pagination";
 import styles from "./Image.module.css";
 
 export default class Image extends Component {
