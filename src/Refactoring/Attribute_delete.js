@@ -11,6 +11,7 @@ export default class Attribute extends Component {
       attributeIndex,
       selected,
       className,
+      onSelected,
     } = this.props;
     return (
       <>
@@ -22,6 +23,7 @@ export default class Attribute extends Component {
           selectionsRef={selectionsRef}
           attributeIndex={attributeIndex}
           selected={selected}
+          onSelected={onSelected}
         />
       </>
     );

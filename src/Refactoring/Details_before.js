@@ -8,26 +8,23 @@ import { addItemToCart } from "../../../redux/actions";
 import styles from "./Details.module.css";
 
 class Details extends Component {
-  state = { select: [] };
+  constructor(props) {
+    super(props);
 
+    this.attributesRef = React.createRef();
+    this.attributesRef.current = [];
+  }
   submitForm = () => {
-    const positive = this.state.select.some((element) => element === undefined);
     if (
-      this.props.product.attributes.length === this.state.select.length &&
-      !positive
+      this.props.product.attributes.length === this.attributesRef.current.length
     ) {
-      const key = this.props.product.id + "-" + this.state.select.join("-");
+      const key =
+        this.props.product.id + "-" + this.attributesRef.current.join("-");
       const item = this.props.product;
-      const selected = [...this.state.select];
+      const selected = [...this.attributesRef.current];
       const product = { key, item, selected };
       this.props.addItem(product);
     }
-  };
-
-  onSelected = (index, value) => {
-    let stateArray = this.state.select;
-    stateArray[index] = value;
-    this.setState({ select: [...stateArray] });
   };
 
   render() {
@@ -41,9 +38,8 @@ class Details extends Component {
         <Title brand={brand} name={name} className={styles.name} />
         <Attributes
           attributes={attributes}
+          selectionsRef={this.attributesRef}
           className={styles.header}
-          onSelected={this.onSelected}
-          selected={this.state.select}
         />
         <section>
           <h4 className={styles.price}>PRICE:</h4>

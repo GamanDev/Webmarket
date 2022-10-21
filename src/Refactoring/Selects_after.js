@@ -4,9 +4,14 @@ import styles from "./Selects.module.css";
 
 export default class Selects extends Component {
   render() {
-    const { attribute, attributeIndex, product } = this.props;
-    const { classSwatch, classText, selected, onSelected } = product;
-
+    const {
+      attribute,
+      classSwatch,
+      classText,
+      selected,
+      onSelected,
+      attributeIndex,
+    } = this.props;
     const { items, type } = attribute;
 
     return (
@@ -22,7 +27,7 @@ export default class Selects extends Component {
                 className={cx(
                   styles.swatch,
                   classSwatch,
-                  selected[attributeIndex] === item.value &&
+                  selected[this.props.attributeIndex] === item.value &&
                     styles.swatch_active
                 )}
               ></button>
@@ -31,7 +36,8 @@ export default class Selects extends Component {
                 className={cx(
                   styles.text,
                   classText,
-                  selected[attributeIndex] === item.value && styles.text_active
+                  selected[this.props.attributeIndex] === item.value &&
+                    styles.text_active
                 )}
                 onClick={() => onSelected(attributeIndex, item.value)}
               >
