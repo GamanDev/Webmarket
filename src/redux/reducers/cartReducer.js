@@ -13,7 +13,6 @@ function getItems(item) {
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      console.log("action", action.payload);
       const result = state.ItemsInCart[action.payload.key]
         ? {
             ItemsInCart: {

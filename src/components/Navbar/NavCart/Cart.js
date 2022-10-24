@@ -12,7 +12,7 @@ export default class Cart extends Component {
 
     const itemsCount = getTotalCount(ItemsInCart);
     if (!ItemsInCart) return null;
-
+    console.log("object", ItemsInCart);
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
