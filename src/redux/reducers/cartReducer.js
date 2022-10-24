@@ -13,23 +13,26 @@ function getItems(item) {
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      const result = {
-        ItemsInCart: {
-          ...state.ItemsInCart,
-          [action.payload.key]: {
-            ...action.payload,
-            item: state.ItemsInCart[action.payload.key]
-              ? state.ItemsInCart[action.payload.key].item
-              : action.payload.item,
-            selected: state.ItemsInCart[action.payload.key]
-              ? state.ItemsInCart[action.payload.key].selected
-              : action.payload.selected,
-            amount: state.ItemsInCart[action.payload.key]
-              ? state.ItemsInCart[action.payload.key].amount + 1
-              : 1,
-          },
-        },
-      };
+      console.log("action", action.payload);
+      const result = state.ItemsInCart[action.payload.key]
+        ? {
+            ItemsInCart: {
+              ...state.ItemsInCart,
+              [action.payload.key]: {
+                ...state.ItemsInCart[action.payload.key],
+                amount: state.ItemsInCart[action.payload.key].amount + 1,
+              },
+            },
+          }
+        : {
+            ItemsInCart: {
+              ...state.ItemsInCart,
+              [action.payload.key]: {
+                ...action.payload,
+                amount: 1,
+              },
+            },
+          };
       getItems({ ...result.ItemsInCart });
       return result;
 
@@ -39,13 +42,7 @@ export const cartReducer = (state = initialState, action) => {
           ItemsInCart: {
             ...state.ItemsInCart,
             [action.payload.key]: {
-              ...action.payload,
-              item: state.ItemsInCart[action.payload.key]
-                ? state.ItemsInCart[action.payload.key].item
-                : action.payload.item,
-              selected: state.ItemsInCart[action.payload.key]
-                ? state.ItemsInCart[action.payload.key].selected
-                : action.payload.selected,
+              ...state.ItemsInCart[action.payload.key],
               amount: state.ItemsInCart[action.payload.key].amount - 1,
             },
           },

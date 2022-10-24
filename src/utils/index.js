@@ -1,18 +1,17 @@
 export function showPriceSymbol(object, currencyIndex) {
-  const price = Object.keys(object)[0];
-  return object[price].item.prices[currencyIndex].currency.symbol;
+  const price = Object.values(object)[0];
+  return price.item.prices[currencyIndex].currency.symbol;
 }
 
 export function getTotalCount(object) {
-  return Object.keys(object).reduce((acc, key) => acc + object[key].amount, 0);
+  return Object.values(object).reduce((acc, value) => acc + value.amount, 0);
 }
 
 export function calculatePrice(object, currencyIndex) {
-  return Object.keys(object)
+  return Object.values(object)
     .reduce(
-      (acc, key) =>
-        acc +
-        object[key].item.prices[currencyIndex].amount * object[key].amount,
+      (acc, value) =>
+        acc + value.item.prices[currencyIndex].amount * value.amount,
       0
     )
     .toFixed(2);
