@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pagination from "../../pages/cart/Item/Pagination";
+import Pagination from "../../pages/cart/Pagination/Pagination";
 import styles from "./Image.module.css";
 
 export default class Image extends Component {
@@ -10,7 +10,7 @@ export default class Image extends Component {
   };
 
   render() {
-    const { gallery, className } = this.props;
+    const { gallery, className, pagination } = this.props;
 
     if (gallery.length === 1) {
       return <img src={gallery[0]} alt="product_pic" className={className} />;
@@ -26,7 +26,9 @@ export default class Image extends Component {
           alt="product_pic"
           className={className}
         />
-        <Pagination gallery={gallery} changeIndex={this.changeIndex} />
+        {pagination && (
+          <Pagination gallery={gallery} changeIndex={this.changeIndex} />
+        )}
       </div>
     );
   }

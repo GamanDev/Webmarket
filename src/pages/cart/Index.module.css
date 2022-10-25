@@ -30,3 +30,45 @@
 .order:active {
   scale: 0.95;
 }
+
+/* =========================== */
+
+.border_cart {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+}
+
+.title_cart {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.image_cart {
+  width: 200px;
+  height: 288px;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+}
+
+.counter_cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  background: #ffffff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.counter_cart:hover {
+  background: #dadada;
+}
+
+.counter_cart:active {
+  scale: 0.95;
+}

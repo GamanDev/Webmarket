@@ -73,3 +73,61 @@
 .checkout:active {
   scale: 0.95;
 }
+
+/* =================== */
+
+.title_mini {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.price_mini {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.text_mini {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #1d1f22;
+  font-family: "Source Sans Pro";
+  font-size: 9px;
+  line-height: 160%;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.swatch_mini {
+  width: 16px;
+  height: 16px;
+}
+
+.counter_mini {
+  border: none;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.image_mini {
+  max-width: 121px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.counter_mini:hover {
+  background: #dadada;
+}
+
+.counter_mini:active {
+  scale: 0.95;
+}

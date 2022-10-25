@@ -18,7 +18,9 @@ export default class Selects extends Component {
                 style={{
                   background: item.value,
                 }}
-                onClick={() => onSelected(attributeIndex, item.value)}
+                onClick={() =>
+                  onSelected && onSelected(attributeIndex, item.value)
+                }
                 className={cx(
                   styles.swatch,
                   classSwatch,
@@ -33,7 +35,9 @@ export default class Selects extends Component {
                   classText,
                   selected[attributeIndex] === item.value && styles.text_active
                 )}
-                onClick={() => onSelected(attributeIndex, item.value)}
+                onClick={() =>
+                  onSelected && onSelected(attributeIndex, item.value)
+                }
               >
                 {item.value}
               </button>

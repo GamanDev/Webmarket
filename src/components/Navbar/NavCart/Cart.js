@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import cx from "classnames";
-import Item from "../../Product";
+import Product from "../../Product";
 import Total from "../../Product/Total";
 import { getTotalCount } from "../../../utils";
 import styles from "./Cart.module.css";
@@ -9,24 +9,31 @@ import styles from "./Cart.module.css";
 export default class Cart extends Component {
   render() {
     const { toggleCart, currencyIndex, ItemsInCart } = this.props;
-
     const itemsCount = getTotalCount(ItemsInCart);
+
+    const classNames = {
+      title: styles.title_mini,
+      price: styles.price_mini,
+      text: styles.text_mini,
+      swatch: styles.swatch_mini,
+      counter: styles.counter_mini,
+      image: styles.image_mini,
+    };
+
     if (!ItemsInCart) return null;
-    console.log("object", ItemsInCart);
+
     return (
       <div className={styles.modal} onClick={toggleCart}>
         <div className={styles.cart} onClick={(e) => e.stopPropagation()}>
           <header className={cx(styles.header, !itemsCount && styles.empty)}>
             <strong>My bag,</strong> {itemsCount} items
           </header>
-          {Object.keys(ItemsInCart).map((product) => (
-            <Item
-              key={product}
-              product={product}
-              currencyIndex={currencyIndex}
-              ItemsInCart={ItemsInCart}
-            />
-          ))}
+
+          <Product
+            currencyIndex={currencyIndex}
+            ItemsInCart={ItemsInCart}
+            classNames={classNames}
+          />
 
           {itemsCount > 0 && (
             <>
