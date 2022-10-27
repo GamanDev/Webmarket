@@ -7,11 +7,12 @@ import { getTotalCount } from "../../../utils";
 export default class Total extends Component {
   render() {
     const { ItemsInCart, currencyIndex } = this.props;
+    const tax = 0.21;
 
     const itemsPrice = calculatePrice(ItemsInCart, currencyIndex);
     const symbol = showPriceSymbol(ItemsInCart, currencyIndex);
     const itemsCount = getTotalCount(ItemsInCart);
-    const countTax = (itemsPrice * 0.21).toFixed(2);
+    const countTax = (itemsPrice * tax).toFixed(2);
 
     return (
       <div>

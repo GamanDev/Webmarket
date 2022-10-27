@@ -4,10 +4,10 @@ import { addItemToCart } from "../../redux/actions";
 import styles from "./index.module.css";
 
 class FastCart extends Component {
-  addFastCart = (product) => {
+  addFastCart = ({ product }) => {
     const item = {
-      key: product.product.id + "-",
-      item: { ...product.product },
+      key: product.id + "-",
+      item: { ...product },
       selected: [],
     };
     this.props.addItem(item);

@@ -11,10 +11,7 @@ class NavCart extends Component {
 
   toggleCart = (e) => {
     e.stopPropagation();
-    this.setState({
-      ...this.state,
-      isCartOpen: !this.state.isCartOpen,
-    });
+    this.setState((prevState) => ({ isCartOpen: !prevState.isCartOpen }));
   };
 
   render() {

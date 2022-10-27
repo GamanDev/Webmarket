@@ -6,20 +6,24 @@ export default class Pagination extends Component {
 
   next = () => {
     let index = this.state.index;
+    let gallery = this.props.gallery;
+
     index++;
-    this.setState({ index: index % this.props.gallery.length });
-    this.props.changeIndex(index % this.props.gallery.length);
+    this.setState({ index: index % gallery.length });
+    this.props.changeIndex(index % gallery.length);
   };
 
   prev = () => {
+    let gallery = this.props.gallery;
+
     if (this.state.index < 1) {
-      this.setState({ index: this.props.gallery.length - 1 });
-      this.props.changeIndex(this.props.gallery.length - 1);
+      this.setState({ index: gallery.length - 1 });
+      this.props.changeIndex(gallery.length - 1);
     } else {
       let index = this.state.index;
       index--;
-      this.setState({ index: index % this.props.gallery.length });
-      this.props.changeIndex(index % this.props.gallery.length);
+      this.setState({ index: index % gallery.length });
+      this.props.changeIndex(index % gallery.length);
     }
   };
 

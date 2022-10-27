@@ -8,24 +8,23 @@ import { addItemToCart } from "../../../redux/actions";
 import styles from "./Details.module.css";
 
 class Details extends Component {
-  state = { select: [] };
+  state = { selects: [] };
 
   submitForm = () => {
-    const positive = this.state.select.some((element) => element === undefined);
-    if (
-      this.props.product.attributes.length === this.state.select.length &&
-      !positive
-    ) {
-      const key = this.props.product.id + "-" + this.state.select.join("-");
-      const item = this.props.product;
-      const selected = [...this.state.select];
+    const state = this.state.selects;
+    const item = this.props.product;
+    const positive = state.includes(undefined);
+
+    if (item.attributes.length === state.length && !positive) {
+      const key = item.id + "-" + state.join("-");
+      const selected = [...state];
       const product = { key, item, selected };
       this.props.addItem(product);
     }
   };
 
   onSelected = (index, value) => {
-    let stateArray = this.state.select;
+    let stateArray = this.state.selects;
     stateArray[index] = value;
     this.setState({ select: [...stateArray] });
   };
@@ -43,7 +42,7 @@ class Details extends Component {
           attributes={attributes}
           className={styles.header}
           onSelected={this.onSelected}
-          selected={this.state.select}
+          selected={this.state.selects}
         />
         <section>
           <h4 className={styles.price}>PRICE:</h4>

@@ -9,7 +9,7 @@ class ProductCard extends Component {
   render() {
     const { currency, product } = this.props;
     const { name, gallery, prices, inStock, id, brand, attributes } = product;
-
+    const price = prices[currency];
     if (!product) return null;
 
     return (
@@ -22,8 +22,8 @@ class ProductCard extends Component {
           <div className={styles.footer}>
             <div>{`${brand} ${name}`}</div>
             <div className={styles.price}>
-              <div>{prices[currency].currency.symbol}</div>
-              <div>{prices[currency].amount}</div>
+              <div>{price.currency.symbol}</div>
+              <div>{price.amount}</div>
             </div>
           </div>
           {!inStock && <div className={styles.text}>Out Of Stock</div>}

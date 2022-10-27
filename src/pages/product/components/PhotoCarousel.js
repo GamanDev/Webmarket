@@ -4,7 +4,7 @@ import styles from "./Photocarousel.module.css";
 export default class PhotoCarousel extends Component {
   render() {
     const { gallery, setPhotoIndex } = this.props;
-
+    console.log("carousel", gallery);
     if (!gallery) return;
 
     return (

@@ -13,25 +13,21 @@ function getItems(item) {
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      const result = state.ItemsInCart[action.payload.key]
-        ? {
-            ItemsInCart: {
-              ...state.ItemsInCart,
-              [action.payload.key]: {
+      const result = {
+        ItemsInCart: {
+          ...state.ItemsInCart,
+          [action.payload.key]: state.ItemsInCart[action.payload.key]
+            ? {
                 ...state.ItemsInCart[action.payload.key],
                 amount: state.ItemsInCart[action.payload.key].amount + 1,
-              },
-            },
-          }
-        : {
-            ItemsInCart: {
-              ...state.ItemsInCart,
-              [action.payload.key]: {
+              }
+            : {
                 ...action.payload,
                 amount: 1,
               },
-            },
-          };
+        },
+      };
+
       getItems({ ...result.ItemsInCart });
       return result;
 
